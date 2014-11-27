@@ -9,12 +9,10 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-<<<<<<< HEAD
 
-=======
 CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
 GRANT ALL PRIVILEGES ON * . * TO 'usuario'@'localhost';
->>>>>>> origin/master
+
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
