@@ -10,7 +10,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-
+CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
+GRANT ALL PRIVILEGES ON * . * TO 'usuario'@'localhost';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
