@@ -108,13 +108,10 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Jurado` (
   `usuario` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   `tipo` TINYINT(1) NOT NULL,
-<<<<<<< HEAD
-=======
   `email` VARCHAR(45) NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(12) NOT NULL,
->>>>>>> origin/master
   PRIMARY KEY (`idJurado`))
 ENGINE = InnoDB;
 
