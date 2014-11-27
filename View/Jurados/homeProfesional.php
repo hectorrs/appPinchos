@@ -77,11 +77,8 @@
 					<li>
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
-                    </li>
                    	<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Votar</a>
                     </li>
 		
                     <li>

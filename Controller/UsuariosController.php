@@ -23,8 +23,10 @@
 			}
 			
 			$resultado = mysql_query("select * from ADMIN where usuario = '$login' and password = '$pass'");
+			$resultado = mysql_fetch_array($resultado);
+			$resultado = $resultado[0];
 			
-			if(isset($resultado)){
+			if($resultado!=NULL){
 				header('location: ./view/Admins/homeAdmin.php');
 				$_SESSION["usuario"]=$login;
 			}else{
