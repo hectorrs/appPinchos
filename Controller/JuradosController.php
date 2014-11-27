@@ -5,7 +5,7 @@
 	{
 		private $JuradoMapper;
 		function registrar() {
-			parent::ConectarBD();
+			parent::ConectarDB();
 			$jurado = new Jurado();
 			$this->JuradoMapper = new JuradoMapper();
 			
