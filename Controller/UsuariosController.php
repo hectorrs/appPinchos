@@ -27,7 +27,7 @@
 			$resultado = $resultado[0];
 			
 			if($resultado!=NULL){
-				header('location: ./View/Admins/homeAdmin.php');
+				header('location: ./view/Admins/homeAdmin.php');
 				$_SESSION["usuario"]=$login;
 			}else{
 				
@@ -39,11 +39,11 @@
 				
 				//Si es tipo 0 es jurado popular, si es 1 profesional.
 				if($tipo==0){
-					header('location: ./View/Jurados/homePopular.php');
+					header('location: /HomePopular.php');
 					$_SESSION['usuario']=$login;
 				}else{
 					if($tipo==1){
-						header('location: ./View/Jurados/homeProfesional.php');
+						header('location: /HomeProfesional.php');
 						$_SESSION["usuario"]=$login;
 					}else{
 						header('location: /Error.php');
@@ -53,12 +53,6 @@
 					
 				
 			}	
-		}
-		
-		public function logout(){
-			session_unset();
-			session_destroy();
-			header('location: ./index.php');
 		}
 	
 	}

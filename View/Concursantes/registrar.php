@@ -105,7 +105,7 @@
                     </div>
                 </div>
                 <!-- /.row -->
-                <form name="registrar" method="post" action="../../controlador.php?controller=concursantes&amp;action=registrar"> 
+                <form name="registrar" method="post" action="../../index.php?controller=concursantes&amp;action=registrar"> 
                 <!-- Lo que hace el action es llamar al index.php que esta en directorio principal. Este index lo que hace es: con la variable controller que le pasamos por url compone una nueva url haciendo que la primera letra del controller que le pasamos sea mayuscula y concatenandole Controller quedando ConcursantesController y ademas compone la URL completa ya que sabe que esta en la carpeta /Controller -->
                     <div class="col-lg-6">
                         <div class="panel panel-default">
