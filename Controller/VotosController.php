@@ -1,16 +1,20 @@
 <?php
 	require_once(__DIR__."/../controller/BaseController.php");
 	require_once(__DIR__."/../model/Voto.php");
+	require_once(__DIR__."/../model/VotoMapper.php");
 	
 	
 	
 	class VotosController extends BaseController{
 		private $VotoMapper;
+		
+		
+		
 		public function votarPopular(){
 			parent::ConectarDB();
+			$this->VotoMapper= new VotoMapper();
 			session_start();
 			$usuario=$_SESSION['usuario'];
-			echo $usuario;
 			
 			if (isset($_REQUEST['pincho1']) && isset($_REQUEST['pincho2']) && isset($_REQUEST['pincho3'])){
 				//Datos referentes al establecimiento
@@ -20,8 +24,6 @@
 				$pincho1=$_REQUEST['pincho1'];
 				$pincho2=$_REQUEST['pincho2'];
 				$pincho3=$_REQUEST['pincho3'];
-				$nombrepincho=$this->getIdPincho($pincho1);
-				echo $nombrepincho;
 				
 				
 				//Comprobamos que este voto no ha sido registrado hasta el momento
@@ -52,39 +54,39 @@
 					$id=$id[0];
 					
 					//Creamos el voto1
-					echo $id;
+					
 					$voto1->setIdVoto($pincho1);
 					$voto1->setPuntuacion(1);
 					$voto1->setIdPincho($this->getIdPincho($pincho1));
 					$voto1->setIdJurado($id);
 					$voto1->setCategoria("popular");
 					
-					/*echo "idvoto=";
-					echo $voto1->getIdVoto();
-					echo "puntucaion=";
-					echo $voto1->getPuntuacion();
-					echo "idpincho=";
-					echo $voto1->getIdPincho();
-					echo "idjurado=";
-					echo $voto1->getIdJurado();
-					echo "categoria=";
-					echo $voto1->getCategoria();*/
+					//Creamos el voto2
 					
+					$voto2->setIdVoto($pincho2);
+					$voto2->setPuntuacion(0);
+					$voto2->setIdPincho($this->getIdPincho($pincho2));
+					$voto2->setIdJurado($id);
+					$voto2->setCategoria("popular");
+					
+					//Creamos el voto3
+					
+					$voto3->setIdVoto($pincho3);
+					$voto3->setPuntuacion(0);
+					$voto3->setIdPincho($this->getIdPincho($pincho3));
+					$voto3->setIdJurado($id);
+					$voto3->setCategoria("popular");
+					
+					$this->VotoMapper->saveVotoPopular($voto1);
+					$this->VotoMapper->saveVotoPopular($voto2);
+					$this->VotoMapper->saveVotoPopular($voto3);
+					
+					header("location: ./View/Jurados/homePopular.php");
+				
 				}else{
 					echo "Este pincho ya existe";
 				}
 				
-				
-				
-				
-				
-				
-				/*$concursante->setNombre($_REQUEST['nombre']);
-				$concursante->setDireccion($_REQUEST['direccion']);
-				$concursante->setHorario($_REQUEST['horario']);
-				$concursante->setFoto($_REQUEST['foto']);
-				$concursante->setWeb($_REQUEST['web']);
-				$concursante->setTelefono($_REQUEST['telefono']);*/
 			}
 		}
 		
