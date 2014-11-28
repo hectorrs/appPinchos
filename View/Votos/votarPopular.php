@@ -1,7 +1,3 @@
-<?php
-	session_start();
-	$usuario=$_SESSION['usuario'];
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +49,7 @@
             <ul class="nav navbar-right top-nav">
                 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
@@ -63,11 +59,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <div class="col-lg-12">
-                                <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
-                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
-                                </form>
-                            </div>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -81,14 +73,17 @@
 					<li>
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
-                   	<li>
-                        <a href="../Votos/votarPopular.php"><i class="fa fa-fw fa-bar-chart-o"></i> Votar</a>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Votar</a>
                     </li>
-		
+                   				
                     <li>
                         <a href="#"><i class="fa fa-fw fa-dashboard"></i> Mapa</a>
                     </li>
-                                        
+                    <!--<li>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+                    </li>-->
+                    
                     
                     
                 </ul>
@@ -100,11 +95,43 @@
 
             <div class="container-fluid">
 
-                <div>
-                	<center>
-                		<IMG SRC="../../webroot/img/cartel.jpg" WIDTH=35% HEIGHT=35% ALT="Pincho Ejemplo">
-                    </center>
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Votar Popular
+                        </h1>
+                        
+                    </div>
                 </div>
+                <!-- /.row -->
+                <form name="registrar" method="post" action="../../controlador.php?controller=votos&amp;action=votarPopular"> 
+                    <div class="col-lg-6">   	
+                        <div class="panel panel-green">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Introduce aquí tu pincho ganador</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <label>Pincho Nº 1</label>
+                                    <input class="form-control" name="pincho1">
+                                </div>
+                        </div>
+                        <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Introduce aquí tus otros dos pinchos</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <label>Pincho Nº 2</label>
+                                    <input class="form-control" name="pincho2">
+                                    <label>Pincho Nº 3</label>
+                                    <input class="form-control" name="pincho3">
+                                    
+                                </div>
+                        </div>
+                        <div>*Los Pinchos introducidos no se podrán volver a introducir en posteriores votaciones</div>
+                        <button type="submit" class="btn btn-default" onclick="location.href = 'RegistrarPincho.html'" style="float: right">Votar</button>
+                    </div>
+                  </form>
                 
             </div>
             <!-- /.container-fluid -->
