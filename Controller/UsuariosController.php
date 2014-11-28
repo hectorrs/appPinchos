@@ -38,16 +38,21 @@
 				
 				
 				//Si es tipo 0 es jurado popular, si es 1 profesional.
-				if($tipo==0){
+				if($tipo==NULL){
+					header('location: /Error.php');
+				}else{
+					if($tipo==0){
 					header('location: ./View/Jurados/homePopular.php');
 					$_SESSION['usuario']=$login;
-				}else{
-					if($tipo==1){
-						header('location: ./View/Jurados/homeProfesional.php');
-						$_SESSION["usuario"]=$login;
 					}else{
-						header('location: /Error.php');
+						if($tipo==1){
+							header('location: ./View/Jurados/homeProfesional.php');
+							$_SESSION["usuario"]=$login;
 					}
+				}
+				
+				
+				
 				}
 				
 					
