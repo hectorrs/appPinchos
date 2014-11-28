@@ -45,7 +45,7 @@
     		$this->puntuacion=$puntuacion;
   		}
 		
-		public function setIdPincho($isPincho) {
+		public function setIdPincho($idPincho) {
     		$this->idPincho=$idPincho;
   		}
 		
