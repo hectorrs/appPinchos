@@ -119,7 +119,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Registrarse Concursante
+                            Registrar Jurado
                         </h1>
                         
                     </div>
@@ -132,7 +132,7 @@
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h2 class="panel-title">Introduce los datos del establecimiento</h2>
+                                    <h2 class="panel-title">Introduzca los datos del Jurado</h2>
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
