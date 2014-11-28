@@ -13,11 +13,11 @@
 		
     	//rellenamos los datos referentes al jurado
 		$this->usuario = $usuario;
-    	$this->pass = $pass;  
-		$this->email = $email;    
-		$this->nombre = $nombre;    
-		$this->apellidos = $apellidos;    
-		$this->telefono = $telefono;   
+    	$this->pass = $pass;
+		$this->nombre = $nombre;
+		$this->apellidos = $apellidos;
+		$this->email = $email;
+		$this->telefono = $telefono;
 
   	}
 	
@@ -30,16 +30,16 @@
     	return $this->pass;
   	}
 	
-	public function getEmail() {
-    	return $this->email;
-  	}
-	
 	public function getNombre() {
     	return $this->nombre;
   	}
 	
 	public function getApellidos() {
     	return $this->apellidos;
+  	}
+	
+	public function getEmail() {
+    	return $this->email;
   	}
 	
 	public function getTelefono() {
@@ -54,16 +54,16 @@
     	$this->pass = $pass;
   	}
 	
-	public function setEmail($email) {
-    	$this->email = $email;
-  	}
-	
 	public function setNombre($nombre) {
     	$this->nombre = $nombre;
   	}
 	
-	public function setApellidos($apellido) {
+	public function setApellidos($apellidos) {
     	$this->apellidos = $apellidos;
+  	}
+	
+	public function setEmail($email) {
+    	$this->email = $email;
   	}
 	
 	public function setTelefono($telefono) {

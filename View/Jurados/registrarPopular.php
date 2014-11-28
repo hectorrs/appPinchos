@@ -137,23 +137,27 @@
                                 <div class="panel-body">
                                     <div class="form-group">
                                         <label>Usuario</label>
-                                        <input class="form-control" name="nombre">
+                                        <input class="form-control" name="usuario">
                                     </div>
                                     <div class="form-group">
                                         <label>Contraseña</label>
-                                        <input class="form-control" name="nombre">
+                                        <input class="form-control" type="password" name="pass">
                                     </div>
                                     <div class="form-group">
                                         <label>Nombre</label>
                                         <input class="form-control" name="nombre">
                                     </div>
                                     <div class="form-group">
+                                        <label>Apellidos</label>
+                                        <input class="form-control" name="apellidos">
+                                    </div>
+                                    <div class="form-group">
                                         <label>Email</label>
-                                        <input class="form-control" name="nombre">
+                                        <input class="form-control" type="email" name="email">
                                     </div>
                                     <div class="form-group">
                                         <label>Teléfono</label>
-                                        <input class="form-control" name="nombre">
+                                        <input class="form-control" name="telefono">
                                     </div>
                                 </div>
                             </div>

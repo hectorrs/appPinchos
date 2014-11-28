@@ -1,26 +1,30 @@
 <?php
 	require_once(__DIR__."/../controller/BaseController.php");
+	require_once(__DIR__."/../model/Jurado.php");
+	require_once(__DIR__."/../model/JuradoMapper.php");
 	
 	class JuradosController extends BaseController
 	{
 		private $JuradoMapper;
-		function registrar() {
-			parent::ConectarBD();
+		
+		public function registrar() {
+			parent::ConectarDB();
+			
 			$jurado = new Jurado();
 			$this->JuradoMapper = new JuradoMapper();
 			
 			//si ha introducido por teclado todo
-			if (isset($__REQUEST['usuario']) && isset($__REQUEST['pass']) && isset($__REQUEST['email']) && isset($__REQUEST['nombre']) && isset($__REQUEST['apellidos']) && isset($__REQUEST['telefono'])){
+			if (isset($_REQUEST['usuario']) && isset($_REQUEST['pass']) && isset($_REQUEST['email']) && isset($_REQUEST['nombre']) && isset($_REQUEST['apellidos']) && isset($_REQUEST['telefono'])){
 				$jurado->setUsuario($_REQUEST['usuario']);
-				$pass->setPass($_REQUEST['pass']);
-				$email->setEmail($_REQUEST['email']); 
-				$nombre->setNombre($_REQUEST['nombre']); 
-				$apellidos->setApellidos($_REQUEST['apellidos']); 
-				$telefono->setTelefono($_REQUEST['telefono']);
+				$jurado->setPass($_REQUEST['pass']);
+				$jurado->setNombre($_REQUEST['nombre']);
+				$jurado->setApellidos($_REQUEST['apellidos']);
+				$jurado->setEmail($_REQUEST['email']);
+				$jurado->setTelefono($_REQUEST['telefono']);
 				
 				$this->JuradoMapper->saveJurado($jurado);
 				
-				header("location: ./View/Jurados/inicio.php");
+				header("location: ./View/Usuarios/inicio.php");
 				
 			} else {
 				echo "Introduzca los datos";

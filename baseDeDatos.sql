@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Jurado` (
   `nombre` VARCHAR(45) NOT NULL,
   `apellidos` VARCHAR(45) NOT NULL,
   `telefono` VARCHAR(12) NOT NULL,
-  PRIMARY KEY (`idJurado`))
+  PRIMARY KEY (`idJurado`,`usuario`))
 ENGINE = InnoDB;
 
 
