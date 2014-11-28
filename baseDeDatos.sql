@@ -123,8 +123,8 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `mydb`.`Voto` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`Voto` (
-  `idVoto` INT NOT NULL,
-  `puntuacion` VARCHAR(45) NOT NULL,
+  `idVoto` VARCHAR(45) NOT NULL,
+  `puntuacion` INT NOT NULL,
   `Pincho_idPincho` INT NOT NULL,
   `Jurado_idJurado` INT NOT NULL,
   `categoria` VARCHAR(45) NOT NULL,
