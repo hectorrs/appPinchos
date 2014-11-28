@@ -56,7 +56,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                          	<a href="RegistrarPopular.php">Jurado</a>
+                          	<a href="../Jurados/registrarPopular.php">Jurado</a>
                         </li>
                     </ul>
                 </li>

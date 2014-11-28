@@ -49,22 +49,38 @@
             <ul class="nav navbar-right top-nav">
                 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
+                	<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registrar <b class="caret"></b></a>
+                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
+                        	 <a href="../Concursantes/registrar.php">Concursante</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <div class="col-lg-12">
-                                <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
-                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
-                                </form>
-                            </div>
+                          	<a href="../Jurados/registrarPopular.php">Jurado</a>
                         </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Iniciar Sesión <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <form name="login" method="post" action="../../controlador.php?controller=usuarios&amp;action=login">
+                            <li>
+                                <div class="col-lg-12">
+                                    <input class="form-control" placeholder="Login" name="login" style="margin-bottom: 4px;" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-lg-12">              
+                                    <input class="form-control" placeholder="Password" name="pass" style="margin-bottom: 4px;" />
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="col-lg-12">
+                                <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Entrar</button>
+                                </div>
+                            </li>
+                        </form>
                     </ul>
                 </li>
             </ul>
@@ -191,10 +207,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <script src="../../webroot/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../../webroot/js/bootstrap.min.js"></script>
 
 </body>
 
