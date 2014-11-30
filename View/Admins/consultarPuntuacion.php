@@ -76,13 +76,13 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-					<li class="active">
+					<li>
                         <a href="homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
 					<li>
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="consultarPuntuacion.php"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
                     </li>
                     <li>
@@ -107,19 +107,90 @@
 
             <div class="container-fluid">
 
-                <div>
-                	<center>
-                		<IMG SRC="../../webroot/img/cartel.jpg" WIDTH=35% HEIGHT=35% ALT="Pincho Ejemplo">
-                    </center>
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+						<div class="page-header">
+                        	<span style="font-size:30px"><strong> Puntuaciones </strong></span>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="page-header">
+                                <span style="font-size:18px"> Jurado Profesional </span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Pincho</th>
+                                            <th>Establecimiento</th>
+                                            <th>Votos %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Jamon</td>
+                                            <td>Bar Pepe</td>
+                                            <td>32.3%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Queso</td>
+                                            <td>Bar Pepe</td>
+                                            <td>57%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atun</td>
+                                            <td>Bar Pepe</td>
+                                            <td>11.7%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="page-header">
+                                <span style="font-size:18px"> Jurado Popular </span>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Pincho</th>
+                                            <th>Establecimiento</th>
+                                            <th>Votos %</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Jamon</td>
+                                            <td>Bar Pepe</td>
+                                            <td>32.3%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Queso</td>
+                                            <td>Bar Pepe</td>
+                                            <td>57%</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Atun</td>
+                                            <td>Bar Pepe</td>
+                                            <td>11.7%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
             </div>
-            <!-- /.container-fluid -->
-			
+            <!-- /.row -->
+
         </div>
-        <!-- /#page-wrapper -->
+        <!-- /.container-fluid -->
 
     </div>
+    <!-- /#page-wrapper -->
+
+</div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
