@@ -39,17 +39,15 @@
 			$pinchoMapper = new PinchoMapper();
 			$pinchoMapper->visualizarActividadPopular();
 			
-			//$pinchosVotadosArray = $pinchoMapper->pinchosVotados;
-			$pinchosVotados = $pinchoMapper->pinchosVotados;
+			$pinchosVotadosArray = $pinchoMapper->getPinchosVotados();
 			
-			$pinchosVotadosArray = array();
-			$i = 0;
-			while($row = mysql_fetch_array($pinchosVotados)){
-				$pinchosVotadosArray[$i] = $row[0];
-				$i++;	
-			}
+			$pinchosIntroducidosArray = $pinchoMapper->getPinchosIntroducidos();
 			
-			require_once $_SERVER['DOCUMENT_ROOT'].'/../View/Jurados/visualizarActividadPopular.php';
+			$comentariosArray = $pinchoMapper->getComentarios();
+			/*$pinchosVotados = $pinchoMapper->pinchosVotados;*/
+			
+			
+			require_once $_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Jurados/visualizarActividadPopular.php';
 		}
 		
 		public function visualizarActividadProfesional(){

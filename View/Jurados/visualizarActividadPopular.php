@@ -17,13 +17,14 @@
     <title>Concurso de Pinchos</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../webroot/css/bootstrap.min.css" rel="stylesheet">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../webroot/css/sb-admin.css" rel="stylesheet">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,7 +66,7 @@
                         <li class="divider"></li>
                         <li>
                             <div class="col-lg-12">
-                                <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
+                                <form name="logout" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=logout">
                                     <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
                                 </form>
                             </div>
@@ -123,12 +124,13 @@
                                 </thead>
                                 <tbody>
                                 	<?php
-										foreach($pinchosVotadosArray as $pinchoVotado){
+										while($pinchoVotado=mysql_fetch_array($pinchosVotadosArray)){
 											echo "<tr>";
-												echo"<td width='30%'>"; $pinchosVotado[0]; echo"</td>";
-												echo"<td width='70%'>";	$pinchosVotado[1]; echo"</td>";
+												echo"<td width='30%'>"; echo $pinchoVotado[0]; echo"</td>";
+												echo"<td width='70%'>"; echo $pinchoVotado[1]; echo"</td>";
 											echo"</tr>";
 										}
+
 									?>
                                 </tbody>
                             </table>
@@ -145,10 +147,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td width="30%">Pincho 1</td>
-                                        <td width="70%">Descripción 1</td>
-                                    </tr>
+                                    <?php
+										while($pinchoIntroducido=mysql_fetch_array($pinchosIntroducidosArray)){
+											echo "<tr>";
+												echo"<td width='30%'>"; echo $pinchoIntroducido[0]; echo"</td>";
+												echo"<td width='70%'>"; echo $pinchoIntroducido[1]; echo"</td>";
+											echo"</tr>";
+										}
+
+									?>
                                 </tbody>
                             </table>
                         </div>
@@ -164,10 +171,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td width="30%">Pincho 1</td>
-                                        <td width="70%">Comentario</td>
-                                    </tr>
+                                    <?php
+										while($comentario=mysql_fetch_array($comentariosArray)){
+											echo "<tr>";
+												echo"<td width='30%'>"; echo $comentario[0]; echo"</td>";
+												echo"<td width='70%'>"; echo $comentario[1]; echo"</td>";
+											echo"</tr>";
+										}
+
+									?>
                                 </tbody>
                             </table>
                         </div>
@@ -185,10 +197,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../../webroot/js/jquery.js"></script>
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../webroot/js/bootstrap.min.js"></script>
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/bootstrap.min.js"></script>
 
 </body>
 
