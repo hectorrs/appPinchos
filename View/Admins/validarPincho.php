@@ -17,13 +17,14 @@
     <title>Concurso de pinchos</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../webroot/css/bootstrap.min.css" rel="stylesheet">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../webroot/css/sb-admin.css" rel="stylesheet">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -116,13 +117,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	<?php foreach($pinchosPendientes as $pinchoPendiente){ ?>
+                                	<?php /*foreach($pinchosPendientes as $pinchoPendiente){ ?>
                                         <tr>
                                             <td width="30%"><a href="informacion_validar_pincho.html"><?php echo $pinchoPendiente[0]; ?></a></td>
                                             <td width="40%"><?php echo $pinchoPendiente[1]; ?></td>
                                             <td width="30%"><?php echo $pinchoPendiente[2]; ?></th>
                                         </tr>
-                                    <?php } ?>
+                                    <?php } */?>
+                                    <?php
+										while($pinchoPendiente=mysql_fetch_array($pinchosPendientes)){
+											echo "<tr>";
+												echo"<td width='30%'><a href='./View/Pincho/informacionValidarPincho.php'>"; echo $pinchoPendiente[0]; echo"</a></td>";
+												echo"<td width='30%'>"; echo $pinchoPendiente[0]; echo"</td>";
+												echo"<td width='70%'>"; echo $pinchoPendiente[1]; echo"</td>";
+											echo"</tr>";
+										}
+
+									?>
                                 </tbody>
                             </table>
                         </div>
@@ -140,11 +151,11 @@
     </div>
     <!-- /#wrapper -->
 
-    <!-- jQuery -->
-    <script src="../../webroot/css/js/jquery.js"></script>
+   <!-- jQuery -->
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../webroot/css/js/bootstrap.min.js"></script>
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/bootstrap.min.js"></script>
 
 </body>
 

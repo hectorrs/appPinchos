@@ -23,7 +23,7 @@
 			$adminMapper = new AdminMapper();
 			$pinchosPendientes = $adminMapper->validarPincho();
 			
-			require_once $_SERVER['DOCUMENT_ROOT'].'/../View/Admins/validarPincho.php';
+			require_once ($_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Admins/validarPincho.php');
 		}
 	}
 ?>
