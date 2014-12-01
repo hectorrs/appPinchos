@@ -24,5 +24,25 @@
 			
 			$comentarios = mysql_fetch_array($comentarios);
 		}
+		
+		public function informacionValidarPincho(){
+			parent::ConectarDB();
+			session_start();
+			
+			if(isset($_GET['pincho'])){
+				$idPincho = $GET['pincho'];
+			}
+			
+			$informacionPincho = mysql_query("SELECT idPincho, nombre, descripcion, ingredientes, foto, precio FROM pincho WHERE estado = '0' and idPincho = '$idPincho'");
+			$informacion = mysql_fetch_array($informacionPincho);
+			
+			$resultadosArray = array();
+			
+			foreach($informacionPincho as $resultado){
+				array_push($informacionPincho);
+			}
+			
+			return $pinchosPendientesArray;
+		}
 	}
 ?>

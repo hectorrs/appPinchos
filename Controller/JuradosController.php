@@ -49,7 +49,7 @@
 				$i++;	
 			}
 			
-			require_once $_SERVER['DOCUMENT_ROOT'].'/../View/visualizarActividadPopular.php';
+			require_once $_SERVER['DOCUMENT_ROOT'].'/../View/Jurados/visualizarActividadPopular.php';
 		}
 		
 		public function visualizarActividadProfesional(){
