@@ -2,9 +2,9 @@
 	require_once(__DIR__."/../controller/BaseController.php");
 	require_once(__DIR__."/../model/Jurado.php");
 	require_once(__DIR__."/../model/JuradoMapper.php");
+	require_once(__DIR__."/../model/Pincho.php");
 	
-	class JuradosController extends BaseController
-	{
+	class JuradosController extends BaseController{
 		private $JuradoMapper;
 		
 		public function registrar() {
@@ -29,6 +29,16 @@
 			} else {
 				echo "Introduzca los datos";
 			}
+		}
+		
+		public function visualizarActividadPopular(){
+			parent::ConectarDB();
+			
+			$pincho = new Pincho();
+		}
+		
+		public function visualizarActividadProfesional(){
+				
 		}
 	}
 ?>

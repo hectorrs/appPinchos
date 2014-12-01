@@ -28,5 +28,17 @@ class JuradoMapper extends BaseModel{
 		}
 		
 	}
+	
+	public function visualizarJurado(){
+		parent::ConectarDB();
+		session_start();
+		if(isset($_SESSION['usuario'])){
+			$idJurado = $_SESSION['usuario'];
+		}
+		$resultado = mysql_query("SELECT nombre, descripcion FROM pincho WHERE ";
+		
+		$nombre = $pincho->getNombre();
+		$descripcion = $pincho->getDescripcion();
+	}
 }
 ?>
