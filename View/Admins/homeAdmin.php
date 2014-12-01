@@ -1,4 +1,8 @@
 <?php
+	//hay que hacer esto aquí para que el $AdminsController que le llegue al consultarPuntuacion
+	//sea el mismo
+	require_once("../../controller/AdminsController.php");
+	
 	session_start();
 	$usuario=$_SESSION['usuario'];
 ?>
@@ -83,7 +87,7 @@
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li>
-                        <a href="consultarPuntuacion.php"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
+                        <a href="../../controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>

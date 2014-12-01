@@ -16,13 +16,13 @@
     <title>Concurso de Pinchos</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="../../webroot/css/bootstrap.min.css" rel="stylesheet">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../webroot/css/sb-admin.css" rel="stylesheet">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -83,7 +83,7 @@
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li class="active">
-                        <a href="consultarPuntuacion.php"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
+                        <a href="../../controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
@@ -121,14 +121,14 @@
                                 <table class="table table-bordered table-hover table-striped">
                                     <thead>
                                         <tr>
+                                            <th>Categoría</th>
                                             <th>Pincho</th>
-                                            <th>Establecimiento</th>
                                             <th>Votos %</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Jamon</td>
+                                            <td><?php echo $ganadorIngenio; ?></td>
                                             <td>Bar Pepe</td>
                                             <td>32.3%</td>
                                         </tr>
