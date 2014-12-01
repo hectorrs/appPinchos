@@ -3,6 +3,7 @@
 	require_once(__DIR__."/../model/Jurado.php");
 	require_once(__DIR__."/../model/JuradoMapper.php");
 	require_once(__DIR__."/../model/Pincho.php");
+	require_once(__DIR__."/../model/PinchoMapper.php");
 	
 	class JuradosController extends BaseController{
 		private $JuradoMapper;
@@ -33,8 +34,22 @@
 		
 		public function visualizarActividadPopular(){
 			parent::ConectarDB();
+			session_start();
 			
-			$pincho = new Pincho();
+			$pinchoMapper = new PinchoMapper();
+			$pinchoMapper->visualizarActividadPopular();
+			
+			//$pinchosVotadosArray = $pinchoMapper->pinchosVotados;
+			$pinchosVotados = $pinchoMapper->pinchosVotados;
+			
+			$pinchosVotadosArray = array();
+			$i = 0;
+			while($row = mysql_fetch_array($pinchosVotados)){
+				$pinchosVotadosArray[$i] = $row[0];
+				$i++;	
+			}
+			
+			require_once $_SERVER['DOCUMENT_ROOT'].'/../View/visualizarActividadPopular.php';
 		}
 		
 		public function visualizarActividadProfesional(){

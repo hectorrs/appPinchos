@@ -1,8 +1,6 @@
 <?php
-	require_once(__DIR__."/../controller/JuradosController.php");
 	session_start();
 	$usuario=$_SESSION['usuario'];
-	$jurados = new JuradosController();
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +54,7 @@
             <ul class="nav navbar-right top-nav">
                 
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
@@ -66,7 +64,11 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <div class="col-lg-12">
+                                <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
+                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
+                                </form>
+                            </div>
                         </li>
                     </ul>
                 </li>
@@ -121,10 +123,10 @@
                                 </thead>
                                 <tbody>
                                 	<?php
-										foreach($pinchosVotados as $pinchoVotado){
+										foreach($pinchosVotadosArray as $pinchoVotado){
 											echo "<tr>";
-												echo"<td width='30%'>"; $pinchosVotados['nombre']; echo"</td>";
-												echo"<td width='70%'>";	$pinchosVotados['descripcion']; echo"</td>";
+												echo"<td width='30%'>"; $pinchosVotado[0]; echo"</td>";
+												echo"<td width='70%'>";	$pinchosVotado[1]; echo"</td>";
 											echo"</tr>";
 										}
 									?>
