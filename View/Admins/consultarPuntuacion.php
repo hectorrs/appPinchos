@@ -77,7 +77,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
 					<li>
-                        <a href="homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                        <a href="./View/Admins/homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
 					<li>
                         <a href="../../controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Pinchos</a>
@@ -155,25 +155,20 @@
                                     <thead>
                                         <tr>
                                             <th>Pincho</th>
-                                            <th>Establecimiento</th>
-                                            <th>Votos %</th>
+                                            <th>Votos</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>Jamon</td>
-                                            <td>Bar Pepe</td>
-                                            <td>32.3%</td>
+                                            <td><?php echo $nombrePopular[0]; ?></td>
+                                            <td><?php echo $votosPopular[0]; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Queso</td>
-                                            <td>Bar Pepe</td>
-                                            <td>57%</td>
-                                        </tr>
+                                            <td><?php echo $nombrePopular[1]; ?></td>
+                                            <td><?php echo $votosPopular[1]; ?></td></tr>
                                         <tr>
-                                            <td>Atun</td>
-                                            <td>Bar Pepe</td>
-                                            <td>11.7%</td>
+                                            <td><?php echo $nombrePopular[2]; ?></td>
+                                            <td><?php echo $votosPopular[2]; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>

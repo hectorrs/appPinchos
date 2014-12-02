@@ -8,6 +8,9 @@
 		public $ganadorSabor;
 		public $ganadorPresentacion;
 		
+		public $nombresPopular;
+		public $votosPopular;
+		
 		public function validarPincho(){
 			parent::ConectarDB();
 			session_start();
@@ -31,6 +34,7 @@
 				
 				//puntuacion del ganador
 				$puntuacionIngenio = $idIngenio[0];
+				$idIngenio = $idIngenio[1];
 				
 				//nombre de idPincho ganador
 				$nombreIngenio = mysql_query("SELECT nombre FROM pincho WHERE idPincho = '$idIngenio'");
@@ -51,6 +55,7 @@
 			
 				//puntuacion del ganador
 				$puntuacionSabor = $idSabor[0];
+				$idSabor = $idSabor[1];
 				
 				//nombre de idPincho ganador
 				$nombreSabor = mysql_query("SELECT nombre FROM pincho WHERE idPincho = '$idSabor'");
@@ -71,6 +76,7 @@
 				
 				//puntuacion del ganador
 				$puntuacionPresentacion = $idPresentacion[0];
+				$idPresentacion = $idPresentacion[1];
 				
 				//nombre de idPincho ganador
 				$nombrePresentacion = mysql_query("SELECT nombre FROM pincho WHERE idPincho = '$idPresentacion'");
@@ -79,12 +85,24 @@
 			}
 			//-- JURADO PROFESIONAL -- PRESENTACION
 			
+			//-----------------------------------
+			
+			// -- JURADO POPULAR --
+			$pinchosPopular = mysql_query("SELECT SUM(puntuacion),nombre FROM voto,pincho WHERE categoria = 'popular' AND Voto_idPincho = Pincho_idPincho GROUP BY Pincho_idPincho ORDER BY 1 DESC");
+			$cont = 0;
+			while($pinchos = mysql_fetch_array($pinchosPopular) && $cont<=2){
+				$nombresPopular[cont] = $pinchos[2];
+				$votosPopular[cont] = $pinchos[0];
+				$cont++;
+			}			
+			
 			
 			/*//conseguir votos
 			$votos = mysql_query("SELECT COUNT(puntuacion) FROM voto WHERE categoria=popular");
 			$votos = mysql_fetch_array($votos);*/
 			
 			require_once(__DIR__."/../View/Admins/consultarPuntuacion.php");
+			// no se puede cambiar por $_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Admins/consultarPuntuacion.php'
 		}
 	}
 ?>
