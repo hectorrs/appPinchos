@@ -77,23 +77,25 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-					<li class="active">
+					<li>
                         <a href="#"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
-					<li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+					<li class="active">
+                        <a href="../../controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Votar</a>
+                        <a href="../../controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
                     </li>
-                   				
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
+                    </li>
+                   	<li>
+                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
+                    </li>
+		
                     <li>
                         <a href="#"><i class="fa fa-fw fa-dashboard"></i> Mapa</a>
                     </li>
-                    <!--<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>-->
-                    
                     
                     
                 </ul>
