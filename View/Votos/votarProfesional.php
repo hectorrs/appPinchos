@@ -1,3 +1,7 @@
+<?php
+	session_start();
+	$usuario=$_SESSION['usuario'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -71,13 +75,13 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-					<li class="active">
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Home</a>
+					<li >
+                        <a href="../Jurados/homeProfesional.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
 					<li>
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Votar</a>
                     </li>
                    				
