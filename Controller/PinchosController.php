@@ -6,11 +6,23 @@
 		public function informacionValidarPincho(){
 			parent::ConectarDB();
 			//session_start();
+			$idPincho=$_GET['pincho'];
 			
 			$pinchosMapper = new PinchoMapper();
-			$informacion = $pinchosMapper->informacionValidarPincho();
+			$informacion = $pinchosMapper->informacionValidarPincho($idPincho);
 			
-			//require_once $_SERVER['DOCUMENT_ROOT'].'/../View/Pincho/informacionValidarPincho.php';
+			require_once ($_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Pincho/informacionValidarPincho.php');
+		}
+		
+		public function validarPincho(){
+			parent::ConectarDB();
+			$idPincho=$_GET['pincho'];
+			$pinchosMapper = new PinchoMapper();
+			$informacion = $pinchosMapper->validarPincho($idPincho);
+			
+			echo "El pincho ha sido validado correctamente";
+			
+			
 		}
 	}
 ?>

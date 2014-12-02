@@ -16,14 +16,16 @@
 
     <title>SB Admin - Bootstrap Admin Template</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="../../webroot/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Bootstrap Core CSS -->
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../../webroot/css/sb-admin.css" rel="stylesheet">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/sb-admin.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="../../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,7 +66,11 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <div class="col-lg-12">
+                                <form name="logout" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=logout">
+                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
+                                </form>
+                            </div>
                         </li>
                     </ul>
                 </li>
@@ -106,25 +112,33 @@
 						<div class="page-header">
                         	<span style="font-size:30px"><strong> Validar Pinchos </strong></span>
                         </div>
-                        <?php foreach($pinchosPendientes as $pinchoPendiente){ ?>
+                      
                             <div class="page-header">
                                 <span style="font-size:18px"> Pincho </span>
                             </div>                    
                             <div>
                                 <center>
-                                	<IMG SRC="<?php $pinchoPendiente[4] ?>" WIDTH=200 HEIGHT=200 ALT="Pincho Ejemplo">
+                                	<IMG SRC="$_SERVER['DOCUMENT_ROOT']./../webroot/img/<?php echo $informacion[4] ?>" WIDTH=200 HEIGHT=200 ALT="Pincho Ejemplo">
                                 </center>
                             </div>
                             <div>
                                 <div class="form-group">
-                                    <label>Descripción: </label> <?php echo $pinchoPendiente[2]; ?> <br>
-                                    <label>Ingredientes: </label> <?php echo $pinchoPendiente[3]; ?> <br>
-                                    <label>Precio: </label> <?php echo $pinchoPendiente[5]; ?> <br>
-                        <?php } ?>
+                                    <label>Descripción: </label> <?php echo $informacion[2]; ?> <br>
+                                    <label>Ingredientes: </label> <?php echo $informacion[3]; ?> <br>
+                                    <label>Precio: </label> <?php echo $informacion[5]; ?> <br>
+                       
                                 </div>
                             <div>
-                            <button><i class="fa fa-check-circle"></i> Validar</button>
-                            <button><i class="fa fa-times"></i> Rechazar</button>
+                            <div class="col-lg-3">
+                                <form name="validar" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=pinchos&amp;action=validarPincho&amp;pincho=<?php echo $informacion[0] ?>">
+                                        <button class="form-control" type="submit" name="Validar"><i class="fa fa-fw fa-power-off"></i>Validar</button>
+                                </form>
+                            </div>
+                            <div class="col-lg-3">
+                                <form name="rechazar" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
+                                        <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
+                                </form>
+                            </div>
 						</div>
 <p style="display: none;">&nbsp;</p></div></div>                     
                     </div>
@@ -143,10 +157,11 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../../webroot/css/js/jquery.js"></script>
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../webroot/css/js/bootstrap.min.js"></script>
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/bootstrap.min.js"></script>
+
 
 </body>
 

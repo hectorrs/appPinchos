@@ -65,7 +65,11 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <div class="col-lg-12">
+                                <form name="logout" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=logout">
+                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
+                                </form>
+                            </div>
                         </li>
                     </ul>
                 </li>
@@ -120,9 +124,9 @@
                                     <?php
 										while($pinchoPendiente=mysql_fetch_array($pinchosPendientes)){
 											echo "<tr>";
-												echo"<td width='30%'><a href='././controlador.php?controller=pinchos&amp;action=informacionValidarPincho'>"; echo $pinchoPendiente[0]; echo"</a></td>";
-												echo"<td width='30%'>"; echo $pinchoPendiente[0]; echo"</td>";
-												echo"<td width='70%'>"; echo $pinchoPendiente[1]; echo"</td>";
+												echo"<td width='30%'><a href='././controlador.php?controller=pinchos&amp;action=informacionValidarPincho&amp;pincho=$pinchoPendiente[3]'>"; echo $pinchoPendiente[0]; echo"</a></td>";
+												echo"<td width='30%'>"; echo $pinchoPendiente[1]; echo"</td>";
+												echo"<td width='70%'>"; echo $pinchoPendiente[2]; echo"</td>";
 											echo"</tr>";
 										}
 									?>
