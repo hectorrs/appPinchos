@@ -123,24 +123,24 @@
                                         <tr>
                                             <th>Categoría</th>
                                             <th>Pincho</th>
-                                            <th>Votos %</th>
+                                            <th>Puntuación</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><?php echo $ganadorIngenio; ?></td>
-                                            <td>Bar Pepe</td>
-                                            <td>32.3%</td>
+                                            <td><?php echo $idIngenio; ?></td>
+                                            <td><?php echo $nombreIngenio; ?></td>
+                                            <td><?php echo $puntuacionIngenio; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Queso</td>
-                                            <td>Bar Pepe</td>
-                                            <td>57%</td>
+                                            <td><?php echo $idSabor; ?></td>
+                                            <td><?php echo $nombreSabor; ?></td>
+                                            <td><?php echo $puntuacionSabor; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Atun</td>
-                                            <td>Bar Pepe</td>
-                                            <td>11.7%</td>
+                                            <td><?php echo $idPresentacion; ?></td>
+                                            <td><?php echo $nombrePresentacion; ?></td>
+                                            <td><?php echo $puntuacionPresentacion; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
