@@ -138,7 +138,7 @@
                                             <td><?php echo $puntuacionSabor; ?></td>
                                         </tr>
                                         <tr>
-                                            <td>Presentacion</td>
+                                            <td>Presentación</td>
                                             <td><?php echo $nombrePresentacion; ?></td>
                                             <td><?php echo $puntuacionPresentacion; ?></td>
                                         </tr>

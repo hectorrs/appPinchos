@@ -19,6 +19,7 @@
 		}
 		
 		public function consultarPuntuacion(){
+			parent::ConectarDB();
 			
 			//-- JURADO PROFESIONAL -- INGENIO
 			//idPincho ganador de categoria ingenio
