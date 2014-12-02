@@ -83,6 +83,9 @@
                         <a href="../../controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li>
+                        <a href="../../controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
+                    </li>
+                    <li>
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
                     </li>
                    	<li>

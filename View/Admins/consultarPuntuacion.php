@@ -80,7 +80,7 @@
                         <a href="homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
 					<li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+                        <a href="../../controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li class="active">
                         <a href="../../controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
@@ -128,17 +128,17 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><?php echo $idIngenio; ?></td>
+                                            <td>Ingenio</td>
                                             <td><?php echo $nombreIngenio; ?></td>
                                             <td><?php echo $puntuacionIngenio; ?></td>
                                         </tr>
                                         <tr>
-                                            <td><?php echo $idSabor; ?></td>
+                                            <td>Sabor</td>
                                             <td><?php echo $nombreSabor; ?></td>
                                             <td><?php echo $puntuacionSabor; ?></td>
                                         </tr>
                                         <tr>
-                                            <td><?php echo $idPresentacion; ?></td>
+                                            <td>Presentacion</td>
                                             <td><?php echo $nombrePresentacion; ?></td>
                                             <td><?php echo $puntuacionPresentacion; ?></td>
                                         </tr>
