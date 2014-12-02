@@ -195,14 +195,14 @@ INSERT INTO `mydb`.`jurado` (`idJurado`, `usuario`, `password`, `tipo`, `email`,
 INSERT INTO `mydb`.`pincho` (`idPincho`, `nombre`, `descripcion`, `ingredientes`, `foto`, `precio`, `Concurso_nombre`, `estado`, `Establecimiento_nombre`)
 			VALUES (1,'Pincho de Tortilla','Pincho de tortilla tradicional','Pan, Patatas, Huevos, Cebolla','ejemploPincho.jpg','1e','Ourense', 0 ,'Bar Manolo');
 INSERT INTO `mydb`.`pincho` (`idPincho`, `nombre`, `descripcion`, `ingredientes`, `foto`, `precio`, `Concurso_nombre`, `estado`, `Establecimiento_nombre`)
-			VALUES (2, 'Pincho de Jamón', 'Reinvención de jamón serrano', 'Jamón serrano, sal, sirope de fresas, pan', 'ejemploPincho.jpg', '2e', 'Ourense', '1', 'Bar Pepe');
+			VALUES (2, 'Pincho de Jamon', 'Reinvencion de jamon serrano', 'Jamon serrano, sal, sirope de fresas, pan', 'ejemploPincho.jpg', '2e', 'Ourense', '1', 'Bar Pepe');
 INSERT INTO `mydb`.`pincho` (`idPincho`, `nombre`, `descripcion`, `ingredientes`, `foto`, `precio`, `Concurso_nombre`, `estado`, `Establecimiento_nombre`)
 			VALUES (3, 'Pantumaca a la gallega', 'Pan con tomate, aceite y pulpo', 'Tomate, Pan, Aceite, Pulpo, Sal', 'ejemploPincho.jpg', '2e', 'Ourense', '1', 'Bar Carlos');
 
 -- COMENTARIO
-INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (1 , 'Es un un pincho clásico pero hacen una de las mejores tortillas de Ourense. Recomendado 100%' , 4 , 1);
-INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (2 , 'Me ha encantado, ¡Ojalá gane!' , 5 , 1);
-INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (3 , '¡Riquísimo! Casi mejor tortilla que la de mi mujer, pero ¡que no se entere!' , 6 , 1);
+INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (1 , 'Es un un pincho clasico pero hacen una de las mejores tortillas de Ourense. Recomendado 100%' , 4 , 1);
+INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (2 , 'Me ha encantado, ¡Ojala gane!' , 5 , 1);
+INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (3 , '¡Riquisimo! Casi mejor tortilla que la de mi mujer, pero ¡que no se entere!' , 6 , 1);
 
 -- VOTO
 INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('1', '3', '1', '1', 'ingenio');
