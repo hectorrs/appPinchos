@@ -88,11 +88,11 @@
 			//-----------------------------------
 			
 			// -- JURADO POPULAR --
-			$pinchosPopular = mysql_query("SELECT SUM(puntuacion),nombre FROM voto,pincho WHERE categoria = 'popular' AND Voto_idPincho = Pincho_idPincho GROUP BY Pincho_idPincho ORDER BY 1 DESC");
+			$pinchosPopular = mysql_query("SELECT SUM(puntuacion),Pincho_idPincho,nombre FROM voto,pincho WHERE categoria = 'popular' AND idPincho = Pincho_idPincho GROUP BY Pincho_idPincho ORDER BY 1 DESC");
 			$cont = 0;
 			while($pinchos = mysql_fetch_array($pinchosPopular) && $cont<=2){
-				$nombresPopular[cont] = $pinchos[2];
-				$votosPopular[cont] = $pinchos[0];
+				$nombresPopular[$cont] = $pinchos[2];
+				$votosPopular[$cont] = $pinchos[0];
 				$cont++;
 			}			
 			
@@ -102,7 +102,7 @@
 			$votos = mysql_fetch_array($votos);*/
 			
 			require_once(__DIR__."/../View/Admins/consultarPuntuacion.php");
-			// no se puede cambiar por $_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Admins/consultarPuntuacion.php'
+			// NO se puede cambiar por $_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Admins/consultarPuntuacion.php'
 		}
 	}
 ?>
