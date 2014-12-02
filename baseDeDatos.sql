@@ -164,22 +164,82 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Comentario` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
-
 -- -----------------------------------------------------
 -- Insertamos elementos en las tablas
 -- -----------------------------------------------------
 
-INSERT INTO `admin`(`usuario`, `password`) VALUES ('admin','admin');
+-- ADMIN
 
-INSERT INTO `concurso`(`nombre`, `fecha_creacion`, `bases`, `premios`, `patrocinadores`, `logo`, `Admin_usuario`) VALUES ('Ourense','2014-04-12','bases','premios','patrcinadores','ruta al logo','admin');
+INSERT INTO `mydb`.`admin` (`usuario`, `password`) VALUES ('admin','admin');
 
-INSERT INTO `establecimiento`(`nombre`, `direccion`, `horario`, `foto`, `pagina_web`, `telefono`) VALUES ('Bar Manolo','Calle Progreso n51','8:30 a 10:30','foto.jpg','www.barmanolo.com',988235107);
+-- CONCURSO
+INSERT INTO `mydb`.`concurso` (`nombre`, `fecha_creacion`, `bases`, `premios`, `patrocinadores`, `logo`, `Admin_usuario`) VALUES ('Ourense' , '2014-04-12' , 'bases' , 'premios' , 'patrocinadores' , 'ruta al logo' , 'admin');
 
-INSERT INTO `jurado`(`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (1,'popular','popular',0,'popular@popular.com','pepe','garcia','614789635');
+-- ESTABLECIMIENTOS
+INSERT INTO `mydb`.`establecimiento` (`nombre`, `direccion`, `horario`, `foto`, `pagina_web`, `telefono`) VALUES ('Bar Manolo' , 'Calle Progreso n51' , '8:30 a 10:30' , 'foto.jpg','www.barmanolo.com' , 988235107);
+INSERT INTO `mydb`.`establecimiento` (`nombre`, `direccion`, `horario`, `foto`, `pagina_web`, `telefono`) VALUES ('Bar Pepe' , 'Calle Paseo n12' , '8:30 a 15:30' , 'foto.jpg' , 'www.barpepe.es' , 988154985);
+INSERT INTO `mydb`.`establecimiento` (`nombre`, `direccion`, `horario`, `foto`, `pagina_web`, `telefono`) VALUES ('Bar Carlos' , 'Plaza Alameda n51' , '8:30 a 20:30' , 'foto.jpg' , '' , 988574986);
 
-INSERT INTO `jurado`(`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (2,'profesional','profesional',1,'profesional@profesional.com','maria','perez','695686868');
+-- JURADO PROFESIONAL
+INSERT INTO `mydb`.`jurado` (`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (1, 'prof1', 'profesional', 1, 'profesional1@profesionales.com', 'Maria', 'perez', '695686868');
+INSERT INTO `mydb`.`jurado` (`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (2, 'prof2', 'profesional', 1, 'profesional2@profesionales.com', 'Alberto', 'Chicote', '675986329');
+INSERT INTO `mydb`.`jurado` (`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (3, 'prof3', 'profesional', 1, 'profesional3@profesionales.com', 'Manuel', 'Dieguez', '614574962');
 
-INSERT INTO `pincho`(`idPincho`, `nombre`, `descripcion`, `ingredientes`, `foto`, `precio`, `Concurso_nombre`, `estado`, `Establecimiento_nombre`) VALUES (1,'Pincho de Tortilla','Pincho de tortilla tradicional','Pan, Patatas, Huevos, Cebolla','foto.jpg','1e','Ourense',0,'Bar Manolo');
+
+-- JURADO POPULAR
+INSERT INTO `mydb`.`jurado` (`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (4,'pop1','popular', 0 ,'popular1@populares.com','Pedro','García','615975631');
+INSERT INTO `mydb`.`jurado` (`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (5,'pop2','popular', 0 ,'popular2@populares.com','Óscar','Gutiérrez','624351892');
+INSERT INTO `mydb`.`jurado` (`idJurado`, `usuario`, `password`, `tipo`, `email`, `nombre`, `apellidos`, `telefono`) VALUES (6,'pop3','popular', 0 ,'popular3@populares.com','Zinedine','Zidane','602351976');
+
+-- PINCHO
+INSERT INTO `mydb`.`pincho` (`idPincho`, `nombre`, `descripcion`, `ingredientes`, `foto`, `precio`, `Concurso_nombre`, `estado`, `Establecimiento_nombre`)
+			VALUES (1,'Pincho de Tortilla','Pincho de tortilla tradicional','Pan, Patatas, Huevos, Cebolla','ejemploPincho.jpg','1e','Ourense', 0 ,'Bar Manolo');
+INSERT INTO `mydb`.`pincho` (`idPincho`, `nombre`, `descripcion`, `ingredientes`, `foto`, `precio`, `Concurso_nombre`, `estado`, `Establecimiento_nombre`)
+			VALUES (2, 'Pincho de Jamón', 'Reinvención de jamón serrano', 'Jamón serrano, sal, sirope de fresas, pan', 'ejemploPincho.jpg', '2e', 'Ourense', '1', 'Bar Pepe');
+INSERT INTO `mydb`.`pincho` (`idPincho`, `nombre`, `descripcion`, `ingredientes`, `foto`, `precio`, `Concurso_nombre`, `estado`, `Establecimiento_nombre`)
+			VALUES (3, 'Pantumaca a la gallega', 'Pan con tomate, aceite y pulpo', 'Tomate, Pan, Aceite, Pulpo, Sal', 'ejemploPincho.jpg', '2e', 'Ourense', '1', 'Bar Carlos');
+
+-- COMENTARIO
+INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (1 , 'Es un un pincho clásico pero hacen una de las mejores tortillas de Ourense. Recomendado 100%' , 4 , 1);
+INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (2 , 'Me ha encantado, ¡Ojalá gane!' , 5 , 1);
+INSERT INTO `mydb`.`comentario` (`idComentario`, `comentario`, `Jurado_idJurado`, `Pincho_idPincho`) VALUES (3 , '¡Riquísimo! Casi mejor tortilla que la de mi mujer, pero ¡que no se entere!' , 6 , 1);
+
+-- VOTO
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('1', '3', '1', '1', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('2', '2', '1', '2', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('3', '1', '1', '3', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('4', '3', '2', '1', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('5', '4', '2', '2', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('6', '5', '2', '3', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('7', '3', '3', '1', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('8', '2', '3', '2', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('9', '3', '3', '3', 'ingenio');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('10', '5', '1', '1', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('11', '4', '1', '2', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('12', '1', '1', '3', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('13', '2', '2', '1', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('14', '2', '2', '2', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('15', '3', '2', '3', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('16', '3', '3', '1', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('17', '4', '3', '2', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('18', '3', '3', '3', 'sabor');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('19', '3', '1', '1', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('20', '5', '1', '2', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('21', '1', '1', '3', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('22', '4', '2', '1', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('23', '3', '2', '2', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('24', '3', '2', '3', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('25', '2', '3', '1', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('26', '3', '3', '2', 'presentacion');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('27', '2', '3', '3', 'presentacion');
+
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('28', '1', '1', '4', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('29', '0', '1', '6', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('30', '1', '2', '4', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('31', '1', '2', '5', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('32', '0', '2', '6', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('33', '1', '3', '4', 'popular');
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
