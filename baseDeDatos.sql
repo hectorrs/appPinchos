@@ -17,7 +17,7 @@ GRANT ALL PRIVILEGES ON * . * TO 'usuario'@'localhost';
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 COLLATE utf8_spanish_ci ;
 USE `mydb` ;
 
 -- -----------------------------------------------------
