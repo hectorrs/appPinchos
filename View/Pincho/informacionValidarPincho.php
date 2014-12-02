@@ -109,32 +109,28 @@
                         <?php foreach($pinchosPendientes as $pinchoPendiente){ ?>
                             <div class="page-header">
                                 <span style="font-size:18px"> Pincho </span>
-                            </div>
-                            
+                            </div>                    
                             <div>
                                 <center>
-                                <IMG SRC="<?php $pinchoPendiente[4] ?>" WIDTH=200 HEIGHT=200 ALT="Pincho Ejemplo">
+                                	<IMG SRC="<?php $pinchoPendiente[4] ?>" WIDTH=200 HEIGHT=200 ALT="Pincho Ejemplo">
                                 </center>
                             </div>
                             <div>
-                            <div class="form-group">
-                                <label>Descripción: </label> <?php echo $pinchoPendiente[2]; ?> <br>
-                                <label>Ingredientes: </label> <?php echo $pinchoPendiente[3]; ?> <br>
-                                <label>Precio: </label> <?php echo $pinchoPendiente[5]; ?> <br>
-							<?php } ?>
-							</div>
-						<div>
+                                <div class="form-group">
+                                    <label>Descripción: </label> <?php echo $pinchoPendiente[2]; ?> <br>
+                                    <label>Ingredientes: </label> <?php echo $pinchoPendiente[3]; ?> <br>
+                                    <label>Precio: </label> <?php echo $pinchoPendiente[5]; ?> <br>
+                        <?php } ?>
+                                </div>
+                            <div>
                             <button><i class="fa fa-check-circle"></i> Validar</button>
                             <button><i class="fa fa-times"></i> Rechazar</button>
 						</div>
-<p style="display: none;">&nbsp;</p></div></div>
-                                            
-                                </div>
-                             </div>
-						
-              
+<p style="display: none;">&nbsp;</p></div></div>                     
                     </div>
-                </div>
+                 </div>
+            </div>
+        </div>
                 <!-- /.row -->
 
             

@@ -117,22 +117,14 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                	<?php /*foreach($pinchosPendientes as $pinchoPendiente){ ?>
-                                        <tr>
-                                            <td width="30%"><a href="informacion_validar_pincho.html"><?php echo $pinchoPendiente[0]; ?></a></td>
-                                            <td width="40%"><?php echo $pinchoPendiente[1]; ?></td>
-                                            <td width="30%"><?php echo $pinchoPendiente[2]; ?></th>
-                                        </tr>
-                                    <?php } */?>
                                     <?php
 										while($pinchoPendiente=mysql_fetch_array($pinchosPendientes)){
 											echo "<tr>";
-												echo"<td width='30%'><a href='./View/Pincho/informacionValidarPincho.php'>"; echo $pinchoPendiente[0]; echo"</a></td>";
+												echo"<td width='30%'><a href='././controlador.php?controller=pinchos&amp;action=informacionValidarPincho'>"; echo $pinchoPendiente[0]; echo"</a></td>";
 												echo"<td width='30%'>"; echo $pinchoPendiente[0]; echo"</td>";
 												echo"<td width='70%'>"; echo $pinchoPendiente[1]; echo"</td>";
 											echo"</tr>";
 										}
-
 									?>
                                 </tbody>
                             </table>

@@ -1,4 +1,6 @@
 <?php
+	require_once("BaseModel.php");
+
 	class PinchoMapper extends BaseModel{
 		public $pinchosVotados;
 		public $pinchosIntroducidos;
