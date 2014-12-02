@@ -160,14 +160,14 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td><?php echo $nombrePopular[0]; ?></td>
+                                            <td><?php echo $nombresPopular[0]; ?></td>
                                             <td><?php echo $votosPopular[0]; ?></td>
                                         </tr>
                                         <tr>
-                                            <td><?php echo $nombrePopular[1]; ?></td>
+                                            <td><?php echo $nombresPopular[1]; ?></td>
                                             <td><?php echo $votosPopular[1]; ?></td></tr>
                                         <tr>
-                                            <td><?php echo $nombrePopular[2]; ?></td>
+                                            <td><?php echo $nombresPopular[2]; ?></td>
                                             <td><?php echo $votosPopular[2]; ?></td>
                                         </tr>
                                     </tbody>
@@ -189,10 +189,10 @@
     <!-- /#wrapper -->
 
     <!-- jQuery -->
-    <script src="../../webroot/js/jquery.js"></script>
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../../webroot/js/bootstrap.min.js"></script>
+    <script src="$_SERVER['DOCUMENT_ROOT']./../webroot/js/bootstrap.min.js"></script>
 
 </body>
 

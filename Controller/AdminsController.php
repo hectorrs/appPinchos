@@ -90,11 +90,11 @@
 			// -- JURADO POPULAR --
 			$pinchosPopular = mysql_query("SELECT SUM(puntuacion),Pincho_idPincho,nombre FROM voto,pincho WHERE categoria = 'popular' AND idPincho = Pincho_idPincho GROUP BY Pincho_idPincho ORDER BY 1 DESC");
 			$cont = 0;
-			while($pinchos = mysql_fetch_array($pinchosPopular) && $cont<=2){
+			while($cont<=2 && $pinchos = mysql_fetch_array($pinchosPopular)){
 				$nombresPopular[$cont] = $pinchos[2];
 				$votosPopular[$cont] = $pinchos[0];
 				$cont++;
-			}			
+			}
 			
 			
 			/*//conseguir votos
