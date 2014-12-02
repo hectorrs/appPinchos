@@ -78,19 +78,19 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
 					<li>
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                        <a href="./View/Admins/homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
 					<li class="active">
-                        <a href="../../controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+                        <a href="controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li>
-                        <a href="../../controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
+                        <a href="controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
                     </li>
                    	<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
+                        <a href=""><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
                     </li>
 		
                     <li>

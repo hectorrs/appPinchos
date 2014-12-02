@@ -82,7 +82,7 @@
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                    	<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Votar</a>
+                        <a href="../Votos/votarProfesional.php"><i class="fa fa-fw fa-bar-chart-o"></i> Votar</a>
                     </li>
 		
                     <li>

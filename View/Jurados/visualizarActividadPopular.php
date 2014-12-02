@@ -49,7 +49,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand" href="index.html">Consurso Pinchos</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -80,7 +80,7 @@
 					<li >
                         <a href="./View/Jurados/homePopular.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li >
-					<li class="active">
+					<li>
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li >
