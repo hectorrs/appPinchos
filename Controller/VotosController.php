@@ -2,9 +2,12 @@
 	require_once(__DIR__."/../controller/BaseController.php");
 	require_once(__DIR__."/../model/Voto.php");
 	require_once(__DIR__."/../model/VotoMapper.php");
+	require_once(__DIR__."/../model/Comentario.php");
+	require_once(__DIR__."/../model/ComentarioMapper.php");
 	
 	class VotosController extends BaseController{
 		private $VotoMapper;
+		private $ComentarioMapper;
 		
 		private function getIdPincho($pincho) {
 	 	 	return substr($pincho,0,4);
@@ -13,6 +16,7 @@
 		public function votarPopular(){
 			parent::ConectarDB();
 			$this->VotoMapper= new VotoMapper();
+			$this->ComentarioMapper= new ComentarioMapper();
 			session_start();
 			$usuario=$_SESSION['usuario'];
 			
@@ -41,6 +45,8 @@
 				$comprobacion3=mysql_query("SELECT idVoto FROM voto WHERE idVoto='$pincho3'");
 				$comprobacion3=mysql_fetch_array($comprobacion3);
 				$comprobacion3=$comprobacion3[0];
+				
+				$id;
 				
 				if($comprobacion1==NULL && $comprobacion2==NULL && $comprobacion3==NULL){
 					//$votoPopular->setIdVoto($pincho1);
@@ -81,11 +87,42 @@
 					$this->VotoMapper->saveVotoPopular($voto2);
 					$this->VotoMapper->saveVotoPopular($voto3);
 					
-					header("location: ./View/Jurados/homePopular.php");
+					//
 				
 				}else{
 					echo "Este pincho ya existe";
 				}
+				
+				if (isset($_REQUEST['comentario'])){
+					$comentario = new Comentario();
+					
+					
+					$codigo= mysql_query("SELECT COUNT(*) FROM comentario");
+					$codigo=mysql_fetch_array($codigo);
+					$codigo=$codigo[0];
+					$codigo=$codigo+1;
+					
+					$comentario->setIdComentario($codigo);
+					
+					$mensaje=$_REQUEST['comentario'];
+					$comentario->setComentario($mensaje);
+					
+					$comentario->setIdJurado($id);
+					
+					$comentario->setIdPincho($this->getIdPincho($pincho1));
+					
+					
+					echo $comentario->getIdComentario();
+					echo $comentario->getComentario();
+					echo $comentario->getIdJurado();
+					echo $comentario->getIdPinchos();
+					$this->ComentarioMapper= new ComentarioMapper();
+					$this->ComentarioMapper->saveComentario($comentario);
+					
+					
+				}
+				
+				header("location: ./View/Jurados/homePopular.php");
 				
 			}
 		}
