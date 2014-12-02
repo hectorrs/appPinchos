@@ -77,14 +77,14 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
+					<li >
+                        <a href="./View/Jurados/homePopular.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                    </li >
 					<li class="active">
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Home</a>
-                    </li>
-					<li>
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Votar</a>
+                    <li >
+                        <a href="./View/Votos/votarPopular.php"><i class="fa fa-fw fa-edit"></i> Votar</a>
                     </li>
                    				
                     <li>

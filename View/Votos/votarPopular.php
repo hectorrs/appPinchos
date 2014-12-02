@@ -59,7 +59,7 @@
                             <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
+                            <a href="../../controlador.php?controller=jurados&amp;action=visualizarActividadPopular"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
                         </li>
                         <li class="divider"></li>
                         <li>
@@ -76,7 +76,7 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
 					<li >
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                        <a href="../Jurados/homePopular.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
 					<li >
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
@@ -137,6 +137,19 @@
                                 </div>
                         </div>
                         <div>*Los Pinchos introducidos no se podrán volver a introducir en posteriores votaciones</div>
+                        
+                        <div class="panel panel-info">
+                        		<div class="panel-heading">
+                                    <h3 class="panel-title">Introduzca un comentario para el pincho</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                      
+                                        <textarea class="form-control" rows="4" name="comentario"></textarea>
+                                    </div>
+                                </div>
+                        </div>
+                        
                         <button type="submit" class="btn btn-default" onclick="location.href = 'RegistrarPincho.html'" style="float: right">Votar</button>
                     </div>
                   </form>
