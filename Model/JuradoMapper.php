@@ -22,8 +22,8 @@ class JuradoMapper extends BaseModel{
 		$existsUsuario = $existsUsuario[0];
 		
 		if($existsUsuario == NULL){
-			$resultado = mysql_query("INSERT INTO jurado (idJurado, usuario, password, tipo, email, nombre, apellidos, telefono) VALUES ($codigo, '$usuario', '$pass', 0, '$email', '$nombre', '$apellidos', '$telefono')");
-		} else {
+			$resultado = mysql_query("INSERT INTO jurado(idJurado, usuario, password, tipo, email, nombre, apellidos, telefono) VALUES ($codigo, '$usuario', '$pass', 0, '$email', '$nombre', '$apellidos', '$telefono')");
+		}else {
 			echo "Este usuario ya existe";
 		}
 		
@@ -40,5 +40,32 @@ class JuradoMapper extends BaseModel{
 		$nombre = $pincho->getNombre();
 		$descripcion = $pincho->getDescripcion();
 	}
+	
+	public function visualizarPerfilPopular(){
+		parent::ConectarDB();
+		
+		if(isset($_SESSION['usuario'])){
+			$usuario = $_SESSION['usuario'];
+		}
+		
+		$this->perfil = mysql_query("SELECT nombre, apellidos, password, email, telefono FROM jurado WHERE usuario = '$usuario'");
+		
+		if(isset($_POST['editarPerfil'])){
+			$nombre = $_POST['nombre'];
+			$apellidos = $_POST['apellidos'];
+			$password = $_POST['password'];
+			$email = $_POST['email'];
+			$telefono = $_POST['telefono'];
+			
+			$update = mysql_query("UPDATE jurado SET nombre = '$nombre', apellidos = '$apellidos', password = '$password', email = '$email', telefono = '$telefono' WHERE usuario = '$usuario'");
+			
+			$this->perfil = mysql_query("SELECT nombre, apellidos, password, email, telefono FROM jurado WHERE usuario = '$usuario'");
+		}
+	}
+	
+	public function getPerfil(){
+		return $this->perfil;
+	}
+		
 }
 ?>

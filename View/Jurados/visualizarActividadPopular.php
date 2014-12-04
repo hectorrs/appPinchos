@@ -58,7 +58,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                            <a href="../../controlador.php?controller=jurados&amp;action=visualizarPerfilPopular"><i class="fa fa-fw fa-user"></i> Perfil</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
@@ -130,7 +130,6 @@
 												echo"<td width='70%'>"; echo $pinchoVotado[1]; echo"</td>";
 											echo"</tr>";
 										}
-
 									?>
                                 </tbody>
                             </table>

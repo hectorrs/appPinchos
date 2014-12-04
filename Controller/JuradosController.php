@@ -43,15 +43,21 @@
 			
 			$pinchosIntroducidosArray = $pinchoMapper->getPinchosIntroducidos();
 			
-			$comentariosArray = $pinchoMapper->getComentarios();
-			/*$pinchosVotados = $pinchoMapper->pinchosVotados;*/
-			
+			$comentariosArray = $pinchoMapper->getComentarios();			
 			
 			require_once $_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Jurados/visualizarActividadPopular.php';
 		}
 		
-		public function visualizarActividadProfesional(){
-				
+		public function visualizarPerfilPopular(){
+			parent::ConectarDB();
+			session_start();
+			
+			$juradoMapper = new JuradoMapper();
+			$juradoMapper->visualizarPerfilPopular();
+			
+			$perfil = $juradoMapper->getPerfil();
+			
+			require_once ($_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Jurados/visualizarPerfilPopular.php');
 		}
 	}
 ?>
