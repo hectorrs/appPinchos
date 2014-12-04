@@ -29,7 +29,7 @@ class JuradoMapper extends BaseModel{
 		
 	}
 	
-	public function visualizarJurado(){
+	/*public function visualizarJurado(){
 		parent::ConectarDB();
 		session_start();
 		if(isset($_SESSION['usuario'])){
@@ -39,7 +39,7 @@ class JuradoMapper extends BaseModel{
 		
 		$nombre = $pincho->getNombre();
 		$descripcion = $pincho->getDescripcion();
-	}
+	}*/
 	
 	public function visualizarPerfilPopular(){
 		parent::ConectarDB();

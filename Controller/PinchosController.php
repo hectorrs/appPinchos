@@ -22,7 +22,7 @@
 			
 			echo "El pincho ha sido validado correctamente";
 			
-			
+			header("location: ./View/Admins/homeAdmin.php");
 		}
-	}
+	}0
 ?>

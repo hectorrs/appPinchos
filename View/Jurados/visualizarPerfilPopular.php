@@ -56,15 +56,15 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="../../controlador.php?controller=jurados&amp;action=visualizarPerfilPopular"><i class="fa fa-fw fa-user"></i> Perfil</a>
+                            <a href="controlador.php?controller=jurados&amp;action=visualizarPerfilPopular"><i class="fa fa-fw fa-user"></i> Perfil</a>
                         </li>
                         <li>
-                            <a href="../../controlador.php?controller=jurados&amp;action=visualizarActividadPopular"><i class="fa fa-fw fa-envelope"></i> Actividad</a>   
+                            <a href="controlador.php?controller=jurados&amp;action=visualizarActividadPopular"><i class="fa fa-fw fa-envelope"></i> Actividad</a>   
                         </li>
                         <li class="divider"></li>
                         <li>
                             <div class="col-lg-12">
-                                <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
+                                <form name="logout" method="post" action="controlador.php?controller=usuarios&amp;action=logout">
                                     <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
                                 </form>
                             </div>
@@ -82,7 +82,7 @@
                         <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                     <li>
-                        <a href="../Votos/votarPopular.php"><i class="fa fa-fw fa-edit"></i> Votar</a>
+                        <a href="View/Votos/votarPopular.php"><i class="fa fa-fw fa-edit"></i> Votar</a>
                     </li>
                    				
                     <li>

@@ -17,7 +17,7 @@
 			$idJurado = mysql_fetch_array($idJurado);
 			$idJurado = $idJurado[0];
 			echo $idJurado;
-			$this->pinchosVotados = mysql_query("SELECT p.nombre, p.descripcion FROM pincho p, voto v WHERE v.Jurado_idJurado = '$idJurado' and v.Pincho_idPincho = p.idPincho and v.puntuacion = '$idJurado'");
+			$this->pinchosVotados = mysql_query("SELECT p.nombre, p.descripcion FROM pincho p, voto v WHERE v.Jurado_idJurado = '$idJurado' and v.Pincho_idPincho = p.idPincho and v.puntuacion = '1'");
 			
 			//$pinchosVotados = mysql_fetch_array($pinchosVotados);
 			
@@ -25,7 +25,7 @@
 			
 			//$pinchosIntroducidos = mysql_fetch_array($pinchosIntroducidos);
 			
-			$this->comentarios = mysql_query("SELECT c.Pincho_idPincho, c.comentario FROM comentario c, voto v WHERE c.Jurado_idJurado = '$idJurado' and v.Pincho_idPincho = c.Pincho_idPincho and v.puntuacion = '1'");
+			$this->comentarios = mysql_query("SELECT * FROM comentario c, voto v WHERE c.Jurado_idJurado = '$idJurado' and v.Pincho_idPincho = c.Pincho_idPincho and v.puntuacion = '1' and v.Jurado_idJurado = '$idJurado'");
 			
 			//$comentarios = mysql_fetch_array($comentarios);
 		}

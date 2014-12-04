@@ -55,13 +55,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
-                        </li>
-                        <li class="divider"></li>
+                       	
                         <li>
                         	<div class="col-lg-12">
                                 <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
@@ -77,10 +71,14 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
 					<li class="active">
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                        <a href="homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Pinchos</a>
+                    </li>
+					
 					<li>
-                        <a href="../../controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+                        <a href="../../controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Validar Pinchos</a>
                     </li>
                     <li>
                         <a href="../../controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
@@ -89,7 +87,7 @@
                         <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
                     </li>
                    	<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
+                        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
                     </li>
 		
                     <li>

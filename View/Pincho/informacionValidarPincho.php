@@ -14,7 +14,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Bootstrap Admin Template</title>
+    <title>Concurso de Pinchos</title>
 
       <!-- Bootstrap Core CSS -->
     <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SB Admin</a>
+                <a class="navbar-brand">Concurso de Pinchos</a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -58,13 +58,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
-                        </li>
-                        <li class="divider"></li>
+                       
                         <li>
                             <div class="col-lg-12">
                                 <form name="logout" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=logout">
@@ -78,24 +72,29 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-					<li class="active">
-                        <a href="#"><i class="fa fa-fw fa-desktop"></i> Home</a>
-                    </li>
 					<li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+                        <a href="./View/Admins/homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Votar</a>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Pinchos</a>
                     </li>
-                   				
+					
+					<li class="active">
+                        <a href="controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i>  Validar Pinchos</a>
+                    </li>
+                    <li>
+                        <a href="controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
+                    </li>
+                   	<li>
+                        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
+                    </li>
+		
                     <li>
                         <a href="#"><i class="fa fa-fw fa-dashboard"></i> Mapa</a>
                     </li>
-                    <!--<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>-->
-                    
-                    
                     
                 </ul>
             </div>

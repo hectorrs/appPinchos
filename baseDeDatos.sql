@@ -236,9 +236,11 @@ INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_id
 INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('28', '1', '1', '4', 'popular');
 INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('29', '0', '1', '6', 'popular');
 INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('30', '1', '2', '4', 'popular');
-INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('31', '1', '2', '5', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('31', '0', '2', '5', 'popular');
 INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('32', '0', '2', '6', 'popular');
 INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('33', '1', '3', '4', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('34', '1', '1', '5', 'popular');
+INSERT INTO `mydb`.`voto` (`idVoto`, `puntuacion`, `Pincho_idPincho`, `Jurado_idJurado`, `categoria`) VALUES ('35', '0', '3', '5', 'popular');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
