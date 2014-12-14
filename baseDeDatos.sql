@@ -11,8 +11,8 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- Creamos un usuario
 -- -----------------------------------------------------
 
-CREATE USER 'usuario'@'localhost' IDENTIFIED BY 'usuario';
-GRANT ALL PRIVILEGES ON * . * TO 'usuario'@'localhost';
+-- CREATE USER 'apppinchos'@'localhost' IDENTIFIED BY 'apppinchos';
+GRANT ALL PRIVILEGES ON * . * TO 'apppinchos'@'localhost' IDENTIFIED BY 'apppinchos';
 
 -- -----------------------------------------------------
 -- Schema mydb
@@ -23,9 +23,9 @@ USE `mydb` ;
 -- -----------------------------------------------------
 -- Table `mydb`.`Admin`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Admin` ;
+DROP TABLE IF EXISTS `mydb`.`admin` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Admin` (
+CREATE TABLE IF NOT EXISTS `mydb`.`admin` (
   `usuario` VARCHAR(12) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`usuario`))
@@ -35,9 +35,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Concurso`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Concurso` ;
+DROP TABLE IF EXISTS `mydb`.`concurso` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Concurso` (
+CREATE TABLE IF NOT EXISTS `mydb`.`concurso` (
   `nombre` VARCHAR(45) NOT NULL,
   `fecha_creacion` DATE NOT NULL,
   `bases` VARCHAR(45) NOT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Concurso` (
   PRIMARY KEY (`nombre`),
   CONSTRAINT `fk_Concurso_Admin1`
     FOREIGN KEY (`Admin_usuario`)
-    REFERENCES `mydb`.`Admin` (`usuario`)
+    REFERENCES `mydb`.`admin` (`usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -57,9 +57,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Establecimiento`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Establecimiento` ;
+DROP TABLE IF EXISTS `mydb`.`establecimiento` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Establecimiento` (
+CREATE TABLE IF NOT EXISTS `mydb`.`establecimiento` (
   `nombre` VARCHAR(20) NOT NULL,
   `direccion` VARCHAR(45) NOT NULL,
   `horario` VARCHAR(45) NULL,
@@ -73,9 +73,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Pincho`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Pincho` ;
+DROP TABLE IF EXISTS `mydb`.`pincho` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Pincho` (
+CREATE TABLE IF NOT EXISTS `mydb`.`pincho` (
   `idPincho` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
@@ -88,12 +88,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Pincho` (
   PRIMARY KEY (`idPincho`),
   CONSTRAINT `fk_Pincho_Concurso1`
     FOREIGN KEY (`Concurso_nombre`)
-    REFERENCES `mydb`.`Concurso` (`nombre`)
+    REFERENCES `mydb`.`concurso` (`nombre`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Pincho_Establecimiento1`
     FOREIGN KEY (`Establecimiento_nombre`)
-    REFERENCES `mydb`.`Establecimiento` (`nombre`)
+    REFERENCES `mydb`.`establecimiento` (`nombre`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -102,9 +102,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Jurado`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Jurado` ;
+DROP TABLE IF EXISTS `mydb`.`jurado` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Jurado` (
+CREATE TABLE IF NOT EXISTS `mydb`.`jurado` (
   `idJurado` INT NOT NULL,
   `usuario` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
@@ -120,9 +120,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Voto`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Voto` ;
+DROP TABLE IF EXISTS `mydb`.`voto` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Voto` (
+CREATE TABLE IF NOT EXISTS `mydb`.`voto` (
   `idVoto` VARCHAR(45) NOT NULL,
   `puntuacion` INT NOT NULL,
   `Pincho_idPincho` INT NOT NULL,
@@ -131,12 +131,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Voto` (
   PRIMARY KEY (`idVoto`,`categoria`,`Pincho_idPincho`),
   CONSTRAINT `fk_Voto_Pincho1`
     FOREIGN KEY (`Pincho_idPincho`)
-    REFERENCES `mydb`.`Pincho` (`idPincho`)
+    REFERENCES `mydb`.`pincho` (`idPincho`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Voto_Jurado1`
     FOREIGN KEY (`Jurado_idJurado`)
-    REFERENCES `mydb`.`Jurado` (`idJurado`)
+    REFERENCES `mydb`.`jurado` (`idJurado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -145,9 +145,9 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Comentario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`Comentario` ;
+DROP TABLE IF EXISTS `mydb`.`comentario` ;
 
-CREATE TABLE IF NOT EXISTS `mydb`.`Comentario` (
+CREATE TABLE IF NOT EXISTS `mydb`.`comentario` (
   `idComentario` INT NOT NULL,
   `comentario` VARCHAR(200) NOT NULL,
   `Jurado_idJurado` INT NOT NULL,
@@ -155,12 +155,12 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Comentario` (
   PRIMARY KEY (`idComentario`),
   CONSTRAINT `fk_Comentario_Jurado1`
     FOREIGN KEY (`Jurado_idJurado`)
-    REFERENCES `mydb`.`Jurado` (`idJurado`)
+    REFERENCES `mydb`.`jurado` (`idJurado`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Comentario_Pincho1`
     FOREIGN KEY (`Pincho_idPincho`)
-    REFERENCES `mydb`.`Pincho` (`idPincho`)
+    REFERENCES `mydb`.`pincho` (`idPincho`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

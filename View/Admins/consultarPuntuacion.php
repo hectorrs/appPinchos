@@ -58,7 +58,7 @@
                        
                         <li>
                         	<div class="col-lg-12">
-                                <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
+                                <form name="logout" method="post" action="controlador.php?controller=usuarios&amp;action=logout">
                                     <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
                                 </form>
                             </div>

@@ -30,7 +30,7 @@
 	function loadController($controllerName) {  
 	  $controllerClassName = getControllerClassName($controllerName);
 	  
-	  require_once(__DIR__."/controller/".$controllerClassName.".php");  
+	  require_once(__DIR__."/Controller/".$controllerClassName.".php");  
 	  return new $controllerClassName();
 	}
 	 

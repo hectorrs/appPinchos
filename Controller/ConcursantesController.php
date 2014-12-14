@@ -1,7 +1,7 @@
 <?php
-	require_once(__DIR__."/../controller/BaseController.php");
-	require_once(__DIR__."/../model/Concursante.php");
-	require_once(__DIR__."/../model/ConcursanteMapper.php");
+	require_once(__DIR__."/BaseController.php");
+	require_once(__DIR__."../../Model/Concursante.php");
+	require_once(__DIR__."../../Model/ConcursanteMapper.php");
 	
 	
 	class ConcursantesController extends BaseController
@@ -32,7 +32,7 @@
 				
 				$this->ConcursanteMapper->saveConcursante($concursante);
 				
-				header("location: ./view/Concursantes/registrar.php");//Hay que cambiarlo si se cambia el nombre de la carpeta
+				header("location: ./View/Concursantes/registrar.php");//Hay que cambiarlo si se cambia el nombre de la carpeta
 				
 				
 			}else{

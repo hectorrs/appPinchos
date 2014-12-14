@@ -1,5 +1,5 @@
 <?php
-	require_once(__DIR__."/../controller/BaseController.php");
+	require_once(__DIR__."/BaseController.php");
 	
 	class UsuariosController extends BaseController
 	{
@@ -22,7 +22,7 @@
 				header('location: /Error.php');
 			}
 			
-			$resultado = mysql_query("select * from ADMIN where usuario = '$login' and password = '$pass'");
+			$resultado = mysql_query("select * from admin where usuario = '$login' and password = '$pass'");
 			$resultado = mysql_fetch_array($resultado);
 			$resultado = $resultado[0];
 			
@@ -32,7 +32,7 @@
 			}else{
 				
 				//comprobamos si existe el jurado y recuperamos su tipo
-				$resultado = mysql_query("select tipo from JURADO where usuario = '$login' and password = '$pass'");
+				$resultado = mysql_query("select tipo from jurado where usuario = '$login' and password = '$pass'");
 				$resultado = mysql_fetch_array($resultado);
 				$tipo = $resultado[0];
 				

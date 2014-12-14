@@ -1,9 +1,9 @@
 <?php
-	require_once(__DIR__."/../controller/BaseController.php");
-	require_once(__DIR__."/../model/Jurado.php");
-	require_once(__DIR__."/../model/JuradoMapper.php");
-	require_once(__DIR__."/../model/Pincho.php");
-	require_once(__DIR__."/../model/PinchoMapper.php");
+	require_once(__DIR__."/BaseController.php");
+	require_once(__DIR__."../../Model/Jurado.php");
+	require_once(__DIR__."../../Model/JuradoMapper.php");
+	require_once(__DIR__."../../Model/Pincho.php");
+	require_once(__DIR__."../../Model/PinchoMapper.php");
 	
 	class JuradosController extends BaseController{
 		private $JuradoMapper;

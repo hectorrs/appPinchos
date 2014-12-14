@@ -1,9 +1,0 @@
-- Terminar GestionarPerfilPopular
-
------- Cambios
-
-- Eliminar links de "Concurso de Pinchos" (menú superior)
-
------- Proxima entrega
-- Tildes
-- Pantallas de error/alerts

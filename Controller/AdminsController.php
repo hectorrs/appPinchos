@@ -1,6 +1,6 @@
 <?php
-	require_once(__DIR__."/../controller/BaseController.php");
-	require_once(__DIR__."/../model/AdminMapper.php");
+	require_once(__DIR__."/BaseController.php");
+	require_once(__DIR__."../../Model/AdminMapper.php");
 	
 	class AdminsController extends BaseController
 	{
