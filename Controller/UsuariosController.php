@@ -1,5 +1,6 @@
 <?php
 	require_once(__DIR__."/BaseController.php");
+	require_once(__DIR__."../../Model/UsuarioMapper.php");
 	
 	class UsuariosController extends BaseController
 	{
@@ -64,6 +65,21 @@
 			session_unset();
 			session_destroy();
 			header('location: ./index.php');
+		}
+		
+		public function buscar(){
+			parent::conectarDB();
+			
+			$usuarioMapper = new UsuarioMapper();
+			
+			$establecimientos= $usuarioMapper->buscarEstablecimientos();
+			
+			$pinchos=$usuarioMapper->buscarPinchos();
+
+			require("./View/Usuarios/buscar.php");
+			
+			
+			
 		}
 	
 	}

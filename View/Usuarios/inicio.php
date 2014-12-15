@@ -91,7 +91,7 @@
                         <a href="inicio.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
                     </li>
 					<li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+                        <a href="../../controlador.php?controller=usuarios&amp;action=buscar"><i class="fa fa-fw fa-table"></i> Pinchos</a>
                     </li>
                    				
                     <li>
