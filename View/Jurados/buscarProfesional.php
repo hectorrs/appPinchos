@@ -1,6 +1,6 @@
 <?php
-	$usuario=$_SESSION['usuario'];
-    require_once("Model/BaseModel.php");
+    $usuario = $_SESSION['usuario'];
+	require_once("Model/BaseModel.php");
     $model = new BaseModel();
     $nombreConcurso = $model->getNombreConcurso();
 ?>
@@ -55,20 +55,12 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="controlador.php?controller=jurados&amp;action=visualizarPerfilPopular"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="controlador.php?controller=jurados&amp;action=visualizarActividadPopular"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
                             <div class="col-lg-12">
-                                <form name="logout" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=logout">
+                                <form name="logout" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
                                     <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
                                 </form>
                             </div>
@@ -79,18 +71,14 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-					<li >
-                        <a href="./View/Jurados/homePopular.php"><i class="fa fa-fw fa-desktop"></i> Inicio</a>
-                    </li >
-					<li>
-                        <a href="controlador.php?controller=jurados&amp;action=buscar"><i class="fa fa-fw fa-table"></i> Buscar</a>
+                    <li>
+                        <a href="View/Jurados/homePopular.php"><i class="fa fa-fw fa-desktop"></i> Inicio</a>
                     </li>
-                    <li >
-                        <a href="./View/Votos/votarPopular.php"><i class="fa fa-fw fa-bar-chart-o"></i> Votar</a>
-                    </li>
+                    <li class="active">
+                        <a href="../../controlador.php?controller=usuarios&amp;action=buscar"><i class="fa fa-fw fa-table"></i> Buscar</a>
+                    </li> 
                 </ul>
             </div>
-            <!-- /.navbar-collapse -->
         </nav>
 
         <div id="page-wrapper">
@@ -101,25 +89,36 @@
                 <div class="row">
                     <div class="col-lg-12">
 						<div class="page-header">
-                        	<span style="font-size:30px"><strong> Actividad </strong></span>
+                        	<span style="font-size:30px"><strong> Búsqueda </strong></span>
                         </div>
+                        <div>
+                            <form name="buscar" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=jurados&amp;action=filtrar">                             
+                                <div class="col-lg-6"><input type="text" class="form-control" name="cadenaBusqueda"></div>
+                                <div class="col-lg-2"><button class="form-control" type="submit" name="buscar">Buscar</button></div>
+                            </form>
+                        </div>
+                        <br><br>
                         <div class="page-header">
-                            <span style="font-size:18px"> Pinchos votados </span>
+                            <span style="font-size:18px"> Establecimientos </span>
                         </div>
                         <div style="height:150px;width:auto;overflow-y: scroll;">
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th width="30%">Nombre</th>
-                                        <th width="70%">Descripción</th>
+                                        <th>Nombre</th>
+                                        <th>Dirección</th>
+                                        <th>Teléfono</th>
+                                        <th>Página Web</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 	<?php
-										while($pinchoVotado=mysql_fetch_array($pinchosVotadosArray)){
+										while($establecimiento=mysql_fetch_array($establecimientos)){
 											echo "<tr>";
-												echo"<td width='30%'>"; echo $pinchoVotado[0]; echo"</td>";
-												echo"<td width='70%'>"; echo $pinchoVotado[1]; echo"</td>";
+												echo"<td>"; echo $establecimiento[0]; echo"</td>";
+												echo"<td>"; echo $establecimiento[1]; echo"</td>";
+												echo"<td>"; echo $establecimiento[2]; echo"</td>";
+												echo"<td>"; echo $establecimiento[3]; echo"</td>";
 											echo"</tr>";
 										}
 									?>
@@ -128,22 +127,28 @@
                         </div>
                         <br>
                         <h2 class="page-header">
-                            <font size="+1"> Pinchos introducidos </font>
+                            <font size="+1"> Pinchos </font>
                         </h2>
                         <div style="height:150px;width:auto;overflow-y: scroll;">
                             <table class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th width="30%">Nombre</th>
-                                        <th width="70%">Descripción</th>
+                                        <th>Nombre</th>
+                                        <th>Establecimiento</th>
+                                        <th>Descripción</th>
+                                        <th>Ingredientes</th>
+                                        <th>Precio</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php
-										while($pinchoIntroducido=mysql_fetch_array($pinchosIntroducidosArray)){
+										while($pincho=mysql_fetch_array($pinchos)){
 											echo "<tr>";
-												echo"<td width='30%'>"; echo $pinchoIntroducido[0]; echo"</td>";
-												echo"<td width='70%'>"; echo $pinchoIntroducido[1]; echo"</td>";
+												echo"<td>"; echo $pincho[0]; echo"</td>";
+												echo"<td>"; echo $pincho[1]; echo"</td>";
+												echo"<td>"; echo $pincho[2]; echo"</td>";
+												echo"<td>"; echo $pincho[3]; echo"</td>";
+												echo"<td>"; echo $pincho[4]; echo"</td>";
 											echo"</tr>";
 										}
 
@@ -151,31 +156,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <br>
-                        <h2 class="page-header">
-                            <font size="+1"> Comentarios </font>
-                        </h2>
-                        <div style="height:150px;width:auto;overflow-y: scroll;">
-                            <table class="table table-bordered table-hover">
-                                <thead>
-                                    <tr>
-                                        <th width="30%">Pincho</th>
-                                        <th width="70%">Comentario</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-										while($comentario=mysql_fetch_array($comentariosArray)){
-											echo "<tr>";
-												echo"<td width='30%'>"; echo $comentario[0]; echo"</td>";
-												echo"<td width='70%'>"; echo $comentario[1]; echo"</td>";
-											echo"</tr>";
-										}
-
-									?>
-                                </tbody>
-                            </table>
-                        </div>
+                        
                     </div>
                 </div>
                 <!-- /.row -->

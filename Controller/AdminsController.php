@@ -104,5 +104,42 @@
 			require_once(__DIR__."/../View/Admins/consultarPuntuacion.php");
 			// NO se puede cambiar por $_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Admins/consultarPuntuacion.php'
 		}
+
+		public function gestionarConcurso(){
+			parent::ConectarDB();
+
+			session_start();
+			
+			$adminMapper = new AdminMapper();
+			$adminMapper->gestionarConcurso();
+			
+			$datos = $adminMapper->gestionarConcurso();
+
+			require_once ($_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Admins/gestionarConcurso.php');
+		}
+
+		public function buscar(){
+			parent::buscar();
+
+			$pinchos = parent::getPinchos();
+			$establecimientos = parent::getEstablecimientos();
+			require("./View/Admins/buscar.php");
+		}
+
+		public function filtrar(){
+			parent::conectarDB();
+			
+			if(isset($_POST['cadenaBusqueda'])){
+				$buscar = $_POST['cadenaBusqueda'];
+				parent::filtrar($buscar);
+
+				$pinchos = parent::getPinchos();
+				$establecimientos = parent::getEstablecimientos();
+				
+				require("./View/Admins/buscar.php");
+			}else{
+				$this->buscar();
+			}
+		}
 	}
 ?>

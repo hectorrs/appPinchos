@@ -1,6 +1,5 @@
 <?php
-	require_once(__DIR__."/BaseController.php");
-	require_once(__DIR__."../../Model/UsuarioMapper.php");
+	require_once("Controller/BaseController.php");
 	
 	class UsuariosController extends BaseController
 	{
@@ -51,13 +50,7 @@
 							$_SESSION["usuario"]=$login;
 					}
 				}
-				
-				
-				
-				}
-				
-					
-				
+				}	
 			}	
 		}
 		
@@ -68,21 +61,28 @@
 		}
 		
 		public function buscar(){
-			parent::conectarDB();
-			
-			$usuarioMapper = new UsuarioMapper();
-			
-			$establecimientos= $usuarioMapper->buscarEstablecimientos();
-			
-			$pinchos=$usuarioMapper->buscarPinchos();
+			parent::buscar();
+
+			$pinchos = parent::getPinchos();
+			$establecimientos = parent::getEstablecimientos();
 
 			require("./View/Usuarios/buscar.php");
-			
-			
-			
 		}
-	
+
+		public function filtrar(){
+			parent::conectarDB();
+			
+			if(isset($_POST['cadenaBusqueda'])){
+				$buscar = $_POST['cadenaBusqueda'];
+				parent::filtrar($buscar);
+
+				$pinchos = parent::getPinchos();
+				$establecimientos = parent::getEstablecimientos();
+				
+				require("./View/Usuarios/buscar.php");
+			}else{
+				$this->buscar();
+			}
+		}
 	}
-	
-	
 ?>

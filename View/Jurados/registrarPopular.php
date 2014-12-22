@@ -1,3 +1,9 @@
+<?php
+    require_once("../../Model/BaseModel.php");
+    $model = new BaseModel();
+    $nombreConcurso = $model->getNombreConcurso();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Concurso de Pinchos</title>
+    <title><?php echo $nombreConcurso; ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../../webroot/css/bootstrap.min.css" rel="stylesheet">
@@ -43,11 +49,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Concurso de Pinchos</a>
+                <div class="navbar-brand"><?php echo $nombreConcurso; ?></div>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                
                 <li class="dropdown">
                 	<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registrar <b class="caret"></b></a>
                      <ul class="dropdown-menu">
@@ -66,12 +71,12 @@
                         <form name="login" method="post" action="../../controlador.php?controller=usuarios&amp;action=login">
                             <li>
                                 <div class="col-lg-12">
-                                    <input class="form-control" placeholder="Login" name="login" style="margin-bottom: 4px;" />
+                                    <input class="form-control" placeholder="Usuario" name="login" style="margin-bottom: 4px;" />
                                 </div>
                             </li>
                             <li>
                                 <div class="col-lg-12">              
-                                    <input class="form-control" placeholder="Password" name="pass" style="margin-bottom: 4px;" />
+                                    <input class="form-control" placeholder="Contraseña" name="pass" style="margin-bottom: 4px;" />
                                 </div>
                             </li>
                             <li class="divider"></li>
@@ -88,21 +93,11 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
 					<li class="active">
-                        <a href="../../index.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                        <a href="../../index.php"><i class="fa fa-fw fa-desktop"></i> Inicio</a>
                     </li>
 					<li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+                        <a href="../../controlador.php?controller=usuarios&amp;action=buscar"><i class="fa fa-fw fa-table"></i> Buscar</a>
                     </li>
-                   				
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Mapa</a>
-                    </li>
-                    <!--<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>-->
-                    
-                    
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

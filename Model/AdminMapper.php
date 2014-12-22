@@ -9,5 +9,25 @@
 				
 			return $pinchosPendientes;
 		}
+
+		public function gestionarConcurso(){
+			parent::ConectarDB();
+		
+			$datos = mysql_query("SELECT nombre, fecha_creacion, bases, premios, patrocinadores, logo FROM concurso");
+			
+			if(isset($_POST['editarConcurso'])){
+				$fecha = $_POST['fecha'];
+				$bases = $_POST['bases'];
+				$premios = $_POST['premios'];
+				$patrocinadores = $_POST['patrocinadores'];
+				$logo = $_POST['logo'];
+				
+				$update = mysql_query("UPDATE concurso SET fecha_creacion = '$fecha', bases = '$bases', premios = '$premios', patrocinadores = '$patrocinadores', logo = '$logo'");
+				
+				$datos = mysql_query("SELECT nombre, fecha_creacion, bases, premios, patrocinadores, logo FROM concurso");
+			}
+
+			return $datos;
+		}
 	}
 ?>

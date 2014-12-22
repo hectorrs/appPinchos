@@ -1,6 +1,9 @@
 <?php
 	session_start();
 	$usuario=$_SESSION['usuario'];
+    require_once("Model/BaseModel.php");
+    $model = new BaseModel();
+    $nombreConcurso = $model->getNombreConcurso();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Concurso de Pinchos</title>
+    <title><?php echo $nombreConcurso; ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Concurso de Pinchos</a>
+                <div class="navbar-brand"><?php echo $nombreConcurso; ?></div>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
@@ -71,10 +74,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
 					<li>
-                        <a href="./View/Admins/homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                        <a href="./View/Admins/homeAdmin.php"><i class="fa fa-fw fa-desktop"></i> Inicio</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Pinchos</a>
+                        <a href="controlador.php?controller=admins&amp;action=buscar"><i class="fa fa-fw fa-edit"></i> Buscar</a>
                     </li>
 					<li>
                         <a href="controlador.php?controller=admins&amp;action=validarPincho"><i class="fa fa-fw fa-table"></i> Validar Pinchos</a>
@@ -83,18 +86,8 @@
                         <a href="controlador.php?controller=admins&amp;action=consultarPuntuacion"><i class="fa fa-fw fa-edit"></i> Consultar Puntuación</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
+                        <a href="controlador.php?controller=admins&amp;action=gestionarConcurso"><i class="fa fa-fw fa-edit"></i> Gestionar Concurso</a>
                     </li>
-                   	<li>
-                        <a href="#"><i class="fa fa-fw fa-bar-chart-o"></i> Gestionar Jurado</a>
-                    </li>
-		
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Mapa</a>
-                    </li>
-                                        
-                    
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

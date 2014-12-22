@@ -1,6 +1,7 @@
 <?php
-	//session_start();
-	$usuario=$_SESSION['usuario'];
+	require_once("Model/BaseModel.php");
+    $model = new BaseModel();
+    $nombreConcurso = $model->getNombreConcurso();
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Concurso de Pinchos</title>
+    <title><?php echo $nombreConcurso; ?></title>
 
     <!-- Bootstrap Core CSS -->
     <link href="$_SERVER['DOCUMENT_ROOT']./../webroot/css/bootstrap.min.css" rel="stylesheet">
@@ -49,28 +50,43 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" >Concurso de Pinchos</a>
+                <a class="navbar-brand" ><?php echo $nombreConcurso; ?></a>
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
-                
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $usuario; ?> <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Registrar <b class="caret"></b></a>
+                     <ul class="dropdown-menu">
                         <li>
-                            <a href="controlador.php?controller=jurados&amp;action=visualizarPerfilPopular"><i class="fa fa-fw fa-user"></i> Perfil</a>
-                        </li>
-                        <li>
-                            <a href="controlador.php?controller=jurados&amp;action=visualizarActividadPopular"><i class="fa fa-fw fa-envelope"></i> Actividad</a>
+                             <a href="View/Concursantes/registrar.php">Concursante</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <div class="col-lg-12">
-                                <form name="logout" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=logout">
-                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
-                                </form>
-                            </div>
+                            <a href="View/Jurados/registrarPopular.php">Jurado</a>
                         </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Iniciar Sesión <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <form name="login" method="post" action="controlador.php?controller=usuarios&amp;action=login">
+                            <li>
+                                <div class="col-lg-12">
+                                    <input class="form-control" placeholder="Usuario" name="login" style="margin-bottom: 4px;" />
+                                </div>
+                            </li>
+                            <li>
+                                <div class="col-lg-12">              
+                                    <input class="form-control" type ="password" placeholder="Contraseña" name="pass" style="margin-bottom: 4px;" />
+                                </div>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <div class="col-lg-12">
+                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Entrar</button>
+                                </div>
+                            </li>
+                        </form>
                     </ul>
                 </li>
             </ul>
@@ -78,24 +94,11 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
 					<li >
-                        <a href="./View/Jurados/homePopular.php"><i class="fa fa-fw fa-desktop"></i> Home</a>
+                        <a href="View/Usuarios/inicio.php"><i class="fa fa-fw fa-desktop"></i> Inicio</a>
                     </li >
-					<li>
-                        <a href="#"><i class="fa fa-fw fa-table"></i> Pinchos</a>
+					<li class="active">
+                        <a href="controlador.php?controller=usuarios&amp;action=buscar"><i class="fa fa-fw fa-table"></i> Buscar</a>
                     </li>
-                    <li >
-                        <a href="./View/Votos/votarPopular.php"><i class="fa fa-fw fa-edit"></i> Votar</a>
-                    </li>
-                   				
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-dashboard"></i> Mapa</a>
-                    </li>
-                    <!--<li>
-                        <a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
-                    </li>-->
-                    
-                    
-                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -111,13 +114,13 @@
 						<div class="page-header">
                         	<span style="font-size:30px"><strong> Búsqueda </strong></span>
                         </div>
-                        <div class="form-group">
-                        	 <form name="buscar" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=">
-                                    <input class="form-control" name="buscar">
-                                    <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
-                             </form>
-                            
+                        <div>
+                            <form name="buscar" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=usuarios&amp;action=filtrar">                             
+                                <div class="col-lg-6"><input type="text" class="form-control" name="cadenaBusqueda"></div>
+                                <div class="col-lg-2"><button class="form-control" type="submit" name="buscar">Buscar</button></div>
+                            </form>
                         </div>
+                        <br><br>
                         <div class="page-header">
                             <span style="font-size:18px"> Establecimientos </span>
                         </div>
@@ -145,6 +148,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        <br>
                         <h2 class="page-header">
                             <font size="+1"> Pinchos </font>
                         </h2>

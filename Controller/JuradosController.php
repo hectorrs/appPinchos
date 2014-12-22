@@ -59,5 +59,58 @@
 			
 			require_once ($_SERVER['DOCUMENT_ROOT'].'/appPinchos/View/Jurados/visualizarPerfilPopular.php');
 		}
+
+		public function buscar(){
+			parent::buscar();
+			session_start();
+
+			$pinchos = parent::getPinchos();
+			$establecimientos = parent::getEstablecimientos();
+
+			$usuario=$_SESSION['usuario'];
+
+			$tipo = mysql_query("SELECT tipo FROM jurado WHERE usuario = '$usuario'");
+			$tipo = mysql_fetch_array($tipo);
+			$tipo = $tipo[0];
+
+			if($tipo == 0){
+				echo "popular";
+				require("./View/Jurados/buscarPopular.php");				
+			}else{
+				if($tipo == 1){
+					echo "profesional";
+					require("./View/Jurados/buscarProfesional.php");
+				}
+			}
+		}
+
+		public function filtrar(){
+			parent::conectarDB();
+			session_start();
+			
+			if(isset($_POST['cadenaBusqueda'])){
+				$buscar = $_POST['cadenaBusqueda'];
+				parent::filtrar($buscar);
+
+				$pinchos = parent::getPinchos();
+				$establecimientos = parent::getEstablecimientos();
+				
+				$usuario=$_SESSION['usuario'];
+
+				$tipo = mysql_query("SELECT tipo FROM jurado WHERE usuario = '$usuario'");
+				$tipo = mysql_fetch_array($tipo);
+				$tipo = $tipo[0];
+
+				if($tipo == 0){
+					require("./View/Jurados/buscarPopular.php");				
+				}else{
+					if($tipo == 1){
+						require("./View/Jurados/buscarProfesional.php");
+					}
+				}
+			}else{
+				$this->buscar();
+			}
+		}
 	}
 ?>
