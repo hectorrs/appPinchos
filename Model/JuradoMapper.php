@@ -24,8 +24,10 @@ class JuradoMapper extends BaseModel{
 		if($existsUsuario == NULL){
 			$resultado = mysql_query("INSERT INTO jurado(idJurado, usuario, password, tipo, email, nombre, apellidos, telefono) VALUES ($codigo, '$usuario', '$pass', 0, '$email', '$nombre', '$apellidos', '$telefono')");
 		}else {
-			echo "Este usuario ya existe";
+			$resultado = "vacio";
 		}
+		
+		return $resultado;
 		
 	}
 	

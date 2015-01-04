@@ -23,9 +23,14 @@
 				$jurado->setEmail($_REQUEST['email']);
 				$jurado->setTelefono($_REQUEST['telefono']);
 				
-				$this->JuradoMapper->saveJurado($jurado);
+				$resultado=$this->JuradoMapper->saveJurado($jurado);
 				
-				header("location: ./View/Usuarios/inicio.php");
+				if($resultado=="vacio"){
+					echo '<script> alert(" Este usuario ya existe ") </script>';
+					echo '<script language="JavaScript"> window.location.href ="./View/Jurados/registrarPopular.php" </script>';
+				}else{
+					header("location: ./View/Usuarios/inicio.php");
+				}
 				
 			} else {
 				echo '<script> alert("Campo Vacio, Todos los campos son obligatorios") </script>';
