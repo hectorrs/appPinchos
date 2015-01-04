@@ -15,7 +15,7 @@
 			$this->JuradoMapper = new JuradoMapper();
 			
 			//si ha introducido por teclado todo
-			if (isset($_REQUEST['usuario']) && isset($_REQUEST['pass']) && isset($_REQUEST['email']) && isset($_REQUEST['nombre']) && isset($_REQUEST['apellidos']) && isset($_REQUEST['telefono'])){
+			if ($_REQUEST['usuario'] != NULL &&  $_REQUEST['pass'] != NULL && $_REQUEST['email'] != NULL && $_REQUEST['nombre'] != NULL && $_REQUEST['apellidos'] != NULL && $_REQUEST['telefono'] != NULL ){
 				$jurado->setUsuario($_REQUEST['usuario']);
 				$jurado->setPass($_REQUEST['pass']);
 				$jurado->setNombre($_REQUEST['nombre']);
@@ -28,7 +28,8 @@
 				header("location: ./View/Usuarios/inicio.php");
 				
 			} else {
-				echo "Introduzca los datos";
+				echo '<script> alert("Campo Vacio, Todos los campos son obligatorios") </script>';
+				echo '<script language="JavaScript"> window.location.href ="./View/Jurados/registrarPopular.php" </script>';
 			}
 		}
 		

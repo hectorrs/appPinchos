@@ -39,7 +39,9 @@
 				
 				//Si es tipo 0 es jurado popular, si es 1 profesional.
 				if($tipo==NULL){
-					header('location: /Error.php');
+					echo '<script> alert("Usuario o password incorreto") </script>';
+					echo '<script language="JavaScript"> window.location.href ="index.php" </script>';
+					//header('location: /Error.php');
 				}else{
 					if($tipo==0){
 					header('location: ./View/Jurados/homePopular.php');

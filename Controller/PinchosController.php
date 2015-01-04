@@ -24,5 +24,16 @@
 			
 			header("location: ./View/Admins/homeAdmin.php");
 		}
+
+		public function rechazarPincho(){
+			parent::ConectarDB();
+			$idPincho=$_GET['pincho'];
+			$pinchosMapper = new PinchoMapper();
+			$informacion = $pinchosMapper->rechazarPincho($idPincho);
+			
+			echo "El pincho ha sido rechazado correctamente";
+			
+			header("location: ./View/Admins/homeAdmin.php");
+		}
 	}0
 ?>

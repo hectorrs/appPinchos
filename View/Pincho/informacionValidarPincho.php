@@ -128,8 +128,8 @@
                                 </form>
                             </div>
                             <div class="col-lg-3">
-                                <form name="rechazar" method="post" action="../../controlador.php?controller=usuarios&amp;action=logout">
-                                        <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Salir</button>
+                                <form name="rechazar" method="post" action="$_SERVER['DOCUMENT_ROOT']./../controlador.php?controller=pinchos&amp;action=rechazarPincho&amp;pincho=<?php echo $informacion[0] ?>">
+                                        <button class="form-control" type="submit" name="Entrar"><i class="fa fa-fw fa-power-off"></i>Rechazar</button>
                                 </form>
                             </div>
 						</div>

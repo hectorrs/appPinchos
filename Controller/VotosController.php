@@ -1,9 +1,9 @@
 <?php
-	require_once(__DIR__."/../controller/BaseController.php");
-	require_once(__DIR__."/../model/Voto.php");
-	require_once(__DIR__."/../model/VotoMapper.php");
-	require_once(__DIR__."/../model/Comentario.php");
-	require_once(__DIR__."/../model/ComentarioMapper.php");
+	require_once(__DIR__."/BaseController.php");
+	require_once(__DIR__."../../Model/Voto.php");
+	require_once(__DIR__."../../Model/VotoMapper.php");
+	require_once(__DIR__."../../Model/Comentario.php");
+	require_once(__DIR__."../../Model/ComentarioMapper.php");
 	
 	class VotosController extends BaseController{
 		private $VotoMapper;

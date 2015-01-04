@@ -45,6 +45,11 @@
 			parent::ConectarDB();
 			$update=mysql_query("UPDATE `pincho` SET estado=1 WHERE idPincho='$idPincho'");
 		}
+
+		public function rechazarPincho($idPincho){
+			parent::ConectarDB();
+			$update=mysql_query("UPDATE `pincho` SET estado=2 WHERE idPincho='$idPincho'");
+		}
 		
 		public function getPinchosVotados (){
 			return $this->pinchosVotados;
