@@ -25,7 +25,7 @@
 				
 				$resultado=$this->JuradoMapper->saveJurado($jurado);
 				
-				if($resultado=="vacio"){
+				if($resultado==0){
 					echo '<script> alert(" Este usuario ya existe ") </script>';
 					echo '<script language="JavaScript"> window.location.href ="./View/Jurados/registrarPopular.php" </script>';
 				}else{

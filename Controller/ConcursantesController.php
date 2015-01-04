@@ -30,13 +30,16 @@
 				$concursante->setPrecio($_REQUEST['precio']);
 				
 				
-				$resultado=$this->ConcursanteMapper->saveConcursante($concursante);
+				$resul=$this->ConcursanteMapper->saveConcursante($concursante);
 				
-				if($resultado=="vacio"){
-					echo '<script> alert(" Este usuario ya existe ") </script>';
+				echo $resul;
+				
+				if($resul==0){
+					echo '<script> alert("El usuario ya existe") </script>';
 					echo '<script language="JavaScript"> window.location.href ="./View/Concursantes/registrar.php" </script>';
+					
 				}else{
-					header("location: ./View/Concursantes/registrar.php");//Hay que cambiarlo si se cambia el nombre de la carpeta
+					header("location: ./View/Concursantes/registrar.php");
 				}
 				
 			}else{

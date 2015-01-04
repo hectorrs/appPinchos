@@ -22,8 +22,8 @@ class ConcursanteMapper extends BaseModel{
 		$comprobar = mysql_fetch_array($comprobar);
 		$comprobar = $comprobar[0];
 		
-		
-		if($existsUsuario == NULL){
+
+		if($comprobar == NULL){
 			$resultado = mysql_query("INSERT INTO establecimiento (nombre, direccion, horario, foto, pagina_web, telefono) VALUES ('$nombre','$direccion','$horario','$foto','$web',$telefono)");
 			
 				
@@ -41,7 +41,7 @@ class ConcursanteMapper extends BaseModel{
 					//Insertamos el pincho en  la base de datos 
 					$resultado = mysql_query("INSERT INTO pincho(idPincho, nombre, descripcion, ingredientes, foto, precio, Concurso_nombre, estado, Establecimiento_nombre) VALUES ($codigo,'$pincho','$descripcion','$ingredientes','$foto_pincho','$precio','$nombre_concurso',0,'$nombre')");
 		}else{
-			$resultado = "vacio";
+			$resultado = 0;
 		}
 		
 		return $resultado;
