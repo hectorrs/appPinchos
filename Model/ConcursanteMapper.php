@@ -18,22 +18,34 @@ class ConcursanteMapper extends BaseModel{
 		$precio = $concursante->getPrecio();
 		
 		//introducimos el establecmiento en la base de datos
-		$resultado = mysql_query("INSERT INTO establecimiento (nombre, direccion, horario, foto, pagina_web, telefono) VALUES ('$nombre','$direccion','$horario','$foto','$web',$telefono)");
+		$comprobar = mysql_query("SELECT nombre FROM establecimiento where nombre = '$nombre'");
+		$comprobar = mysql_fetch_array($comprobar);
+		$comprobar = $comprobar[0];
 		
+		
+		if($existsUsuario == NULL){
+			$resultado = mysql_query("INSERT INTO establecimiento (nombre, direccion, horario, foto, pagina_web, telefono) VALUES ('$nombre','$direccion','$horario','$foto','$web',$telefono)");
 			
-				//Recogemos el nombre del concurso
-				$nombre_concurso=mysql_query("SELECT nombre FROM concurso WHERE 1");
-				$nombre_concurso=mysql_fetch_array($nombre_concurso);
-				$nombre_concurso=$nombre_concurso[0];
 				
-				//consultamos el numero de pinchos de la base de datos para asignar el codigo siguiente al pincho
-				$codigo= mysql_query("SELECT COUNT(*) FROM pincho");
-				$codigo=mysql_fetch_array($codigo);
-				$codigo=$codigo[0];
-				$codigo=$codigo+1;
+					//Recogemos el nombre del concurso
+					$nombre_concurso=mysql_query("SELECT nombre FROM concurso WHERE 1");
+					$nombre_concurso=mysql_fetch_array($nombre_concurso);
+					$nombre_concurso=$nombre_concurso[0];
+					
+					//consultamos el numero de pinchos de la base de datos para asignar el codigo siguiente al pincho
+					$codigo= mysql_query("SELECT COUNT(*) FROM pincho");
+					$codigo=mysql_fetch_array($codigo);
+					$codigo=$codigo[0];
+					$codigo=$codigo+1;
+					
+					//Insertamos el pincho en  la base de datos 
+					$resultado = mysql_query("INSERT INTO pincho(idPincho, nombre, descripcion, ingredientes, foto, precio, Concurso_nombre, estado, Establecimiento_nombre) VALUES ($codigo,'$pincho','$descripcion','$ingredientes','$foto_pincho','$precio','$nombre_concurso',0,'$nombre')");
+		}else{
+			$resultado = "vacio";
+		}
+		
+		return $resultado;
 				
-				//Insertamos el pincho en  la base de datos 
-				$resultado = mysql_query("INSERT INTO pincho(idPincho, nombre, descripcion, ingredientes, foto, precio, Concurso_nombre, estado, Establecimiento_nombre) VALUES ($codigo,'$pincho','$descripcion','$ingredientes','$foto_pincho','$precio','$nombre_concurso',0,'$nombre')");
 			
 	}
 }

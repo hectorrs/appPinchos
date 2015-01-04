@@ -30,10 +30,14 @@
 				$concursante->setPrecio($_REQUEST['precio']);
 				
 				
-				$this->ConcursanteMapper->saveConcursante($concursante);
+				$resultado=$this->ConcursanteMapper->saveConcursante($concursante);
 				
-				header("location: ./View/Concursantes/registrar.php");//Hay que cambiarlo si se cambia el nombre de la carpeta
-				
+				if($resultado=="vacio"){
+					echo '<script> alert(" Este usuario ya existe ") </script>';
+					echo '<script language="JavaScript"> window.location.href ="./View/Concursantes/registrar.php" </script>';
+				}else{
+					header("location: ./View/Concursantes/registrar.php");//Hay que cambiarlo si se cambia el nombre de la carpeta
+				}
 				
 			}else{
 				echo '<script> alert("Campo Vacio, Todos los campos son obligatorios") </script>';
